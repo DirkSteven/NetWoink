@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="MainLogic\**" />
+    <EmbeddedResource Remove="MainLogic\**" />
+    <None Remove="MainLogic\**" />
+    <Page Remove="MainLogic\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\color_cancel.PNG" />
+    <None Remove="Resources\color_error.PNG" />
+    <None Remove="Resources\color_help.PNG" />
+    <None Remove="Resources\color_info.PNG" />
+    <None Remove="Resources\color_ok.PNG" />
+    <None Remove="Resources\icons8-ok-red.png" />
+    <None Remove="Resources\spinB.gif" />
+    <None Remove="Resources\spinW.gif" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\color_cancel.PNG" />
+    <Resource Include="Resources\color_error.PNG" />
+    <Resource Include="Resources\color_help.PNG" />
+    <Resource Include="Resources\color_info.PNG" />
+    <Resource Include="Resources\color_ok.PNG" />
+    <Resource Include="Resources\icons8-ok-red.png" />
+    <Resource Include="Resources\spinB.gif" />
+    <Resource Include="Resources\spinW.gif" />
+  </ItemGroup>
+
+</Project>
