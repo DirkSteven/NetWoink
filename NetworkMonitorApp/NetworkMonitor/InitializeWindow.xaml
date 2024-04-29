@@ -17,15 +17,16 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="0" Content="Select An Adaptor: "></Label>
-                <ComboBox Grid.Column="1"></ComboBox>
+                <ComboBox x:Name="comboBox" Grid.Column="1" SelectionChanged="comboBox_SelectionChanged"></ComboBox>
+
             </Grid>
 
-            <Label Content="NIC Type:"/>
-            <Label Content="IP Address:"/>
-            <Label Content="MAC Address:"/>
-            <Label Content="Gateway:"/>
-            <Label Content="Network SSID:"/>
-            <Label Content="Driver Version:" Margin="0 0 0 20"/>
+            <Label x:Name="nicTypeLabel" Content="NIC Type:"/>
+            <Label x:Name="ipAddressLabel" Content="IP Address:"/>
+            <Label x:Name="macAddressLabel" Content="MAC Address:"/>
+            <Label x:Name="gatewayLabel" Content="Gateway:"/>
+            <Label x:Name="networkSSIDLabel" Content="Network SSID:"/>
+            <Label x:Name="driverVersionLabel" Content="Driver Version:" Margin="0 0 0 20"/>
 
             <Grid Margin="300 0 0 20">
                 <Grid.ColumnDefinitions>

@@ -37,4 +37,8 @@
     <Resource Include="Resources\spinW.gif" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Logic\" />
+  </ItemGroup>
+
 </Project>

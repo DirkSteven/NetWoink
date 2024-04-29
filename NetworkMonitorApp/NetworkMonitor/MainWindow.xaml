@@ -42,13 +42,19 @@
                     <ColumnDefinition Width="*" />
 
                 </Grid.ColumnDefinitions>
-                <Label Grid.Column="0" Content="IP" TextBlock.TextAlignment="Center" Margin="10 5 10 5 " Padding="80 0 0 0 "></Label>
+                <Label Grid.Column="0" x:Name="ipLabel" Content="IP" TextBlock.TextAlignment="Center" Margin="10 5 10 5 " Padding="80 0 0 0 "></Label>
+                
                 <GridSplitter Grid.Column="0" BorderThickness="1" BorderBrush="Bisque" ></GridSplitter>
-                <Label Grid.Column="1" Content="MAC" Margin="10 5 10 5 " Padding="80 0 0 0 "></Label>
-                <GridSplitter Grid.Column="1" BorderThickness="1" BorderBrush="Bisque" ></GridSplitter>
-                <Label Grid.Column="2" Content="NAME" Margin="10 5 10 5 " Padding="80 0 0 0 "></Label>
+                
+                <Label Grid.Column="1" x:Name="macLabel" Content="MAC" Margin="10 5 10 5 " Padding="80 0 0 0 "></Label>
+                
+                <GridSplitter Grid.Column="1"  BorderThickness="1" BorderBrush="Bisque" ></GridSplitter>
+                
+                <Label Grid.Column="2" x:Name="nameLabel" Content="NAME" Margin="10 5 10 5 " Padding="80 0 0 0 "></Label>
+                
                 <GridSplitter Grid.Column="2" BorderThickness="1" BorderBrush="Bisque" ></GridSplitter>
-                <Label Grid.Column="3" Content="VENDOR" Margin="10 5 10 5 " Padding="80 0 0 0 "></Label>
+                
+                <Label Grid.Column="3" x:Name="vendorLabel" Content="VENDOR" Margin="10 5 10 5 " Padding="80 0 0 0 "></Label>
 
             </Grid>
             <StackPanel Orientation="Horizontal">
