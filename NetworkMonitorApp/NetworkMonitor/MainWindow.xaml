@@ -16,13 +16,22 @@
                 <Setter Property="Background" Value="#6430CB" />
                 <Setter Property="Foreground" Value="#ffffff" />
                 <Setter Property="Margin" Value="10 5 10 5 " />
-                <Setter Property="Padding" Value="0 7 0 7" />
+                <Setter Property="Padding" Value="0 6" />
                 <Setter Property="FontFamily" Value="Open Sans" />
                 <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border CornerRadius="15" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
             </Style>
         </ResourceDictionary>
     </Window.Resources>
-    
+
     <Border Padding="10" Background="#323030">
         <StackPanel>
             <Grid>
@@ -40,13 +49,13 @@
                 <Label Grid.Column="2" Content="NAME" Margin="10 5 10 5 " Padding="80 0 0 0 "></Label>
                 <GridSplitter Grid.Column="2" BorderThickness="1" BorderBrush="Bisque" ></GridSplitter>
                 <Label Grid.Column="3" Content="VENDOR" Margin="10 5 10 5 " Padding="80 0 0 0 "></Label>
-    
+
             </Grid>
             <StackPanel Orientation="Horizontal">
                 <Label Content="Devices" FontWeight="Bold"/>
                 <Separator Width="720"></Separator>
             </StackPanel>
-            
+
             <Label Content="Gateway" FontWeight="Bold"/>
             <Label Content="Own Device" FontWeight="Bold"/>
 
@@ -69,7 +78,7 @@
                 <Button x:Name="DevicesButton" Click="DevicesButton_Click" Grid.Column="5" Content="DEVICES: "></Button>
 
             </Grid>
-            
+
 
         </StackPanel>
     </Border>
