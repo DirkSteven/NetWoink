@@ -1,0 +1,112 @@
+﻿<Window x:Class="NetworkMonitor.AboutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NetworkMonitor"
+        mc:Ignorable="d"
+        Title="About" Height="550" Width="500">
+    <Window.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="FontFamily" Value="Open Sans"/>
+                <Setter Property="Foreground" Value="#ffffff"/>
+                <Setter Property="HorizontalAlignment" Value="Left"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="FontFamily" Value="Open Sans"/>
+                <Setter Property="Foreground" Value="#ffffff"/>
+                <Setter Property="Background" Value="#6430CB"/>
+                <Setter Property="HorizontalAlignment" Value="Right"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="Padding" Value="30 6" />
+                <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border CornerRadius="15" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Border Padding="10" Background="#323030">
+        <StackPanel>
+            <Grid Height="515" Width="450" ShowGridLines="False">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height ="4*"/>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+
+                <Image Source="/Resources/peppa.png" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+                
+                <Label Content="VERSION: " Grid.Row="1" Grid.Column="0"></Label>
+                <Label Content="1.0.0.0" Grid.Row="1" Grid.Column="2"></Label>
+
+                <Label Content="BUILD DATE: " Grid.Row="2" Grid.Column="0"></Label>
+                <Label Content="2024" Grid.Row="2" Grid.Column="2" ></Label>
+
+                <Label Content="CREATED BY: " Grid.Row="3" Grid.Column="0"></Label>
+                <Label Content="Javier, Abella, Montenegro, Tolentino " Grid.Row="3" Grid.Column="2" ></Label>
+
+                <Label Content="GITHUB: " Grid.Row="4" Grid.Column="0"></Label>
+                <Label Grid.Row="4" Grid.Column="2" >
+                    <Hyperlink NavigateUri="https://github.com/DirkSteven/NMS"  Hyperlink.RequestNavigate= "Hyperlink_RequestNavigate">
+                        https://github.com/DirkSteven/NMS
+                    </Hyperlink>
+                </Label>
+
+                <GroupBox Header="External Libraries" Grid.Row="5" Grid.ColumnSpan="2" Foreground="#ffffff" FontFamily="Open Sans">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <Label Content="PcapDotNet: " Grid.Row="0" Grid.Column="0"></Label>
+                        <Label Grid.Row="0" Grid.Column="1">
+                            <Hyperlink NavigateUri="https://github.com/PcapDotNet/Pcap.Net"  Hyperlink.RequestNavigate= "Hyperlink_RequestNavigate">
+                                https://github.com/PcapDotNet/Pcap.Net
+                            </Hyperlink>
+                        </Label>
+                        
+                        <Label Content="Npcap: " Grid.Row="1" Grid.Column="0"></Label>
+                        <Label Grid.Row="1" Grid.Column="1">
+                            <Hyperlink NavigateUri="https://npcap.com/"  Hyperlink.RequestNavigate= "Hyperlink_RequestNavigate">
+                                https://npcap.com/
+                            </Hyperlink>
+                        </Label>
+                        
+                        <Label Content="Npcap: " Grid.Row="2" Grid.Column="0"></Label>
+                        <Label Grid.Row="2" Grid.Column="1">
+                            <Hyperlink NavigateUri="https://github.com/dotpcap/sharppcap"  Hyperlink.RequestNavigate= "Hyperlink_RequestNavigate">
+                                https://github.com/dotpcap/sharppcap
+                            </Hyperlink>
+                        </Label>
+                    </Grid>
+                </GroupBox>
+
+                <Button x:Name="AbtOKBtn" Click="AbtOKBtn_Click" Grid.Row="6" Grid.Column="2" Content="OK"></Button>
+            </Grid>
+        </StackPanel>
+    </Border>
+</Window>

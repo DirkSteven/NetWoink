@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\Projects\NMS\NetworkMonitorApp\NetworkMonitor\obj\Debug\net8.0-windows\
+C:\Users\monte\OneDrive\Documents\school\CS\221\NMS\NetworkMonitorApp\NetworkMonitor\obj\Debug\net8.0-windows\
 NetworkMonitor
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-D:\Projects\NMS\NetworkMonitorApp\NetworkMonitor\App.xaml
-2-661874798
+C:\Users\monte\OneDrive\Documents\school\CS\221\NMS\NetworkMonitorApp\NetworkMonitor\App.xaml
+41356938609
 
-7-841775616
+9-2008597774
 198-294894759
-InitializeWindow.xaml;MainWindow.xaml;
+AboutWindow.xaml;CFWindow.xaml;InitializeWindow.xaml;MainWindow.xaml;
 
 True
 

@@ -80,7 +80,8 @@ namespace NetworkMonitor
 
         private void AboutButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("About");
+            AboutWindow abtWindow = new AboutWindow();
+            abtWindow.Show();
         }
 
         private void DevicesButton_Click(object sender, RoutedEventArgs e)
