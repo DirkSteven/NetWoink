@@ -1,0 +1,29 @@
+﻿<Window x:Class="NetworkMonitor.SnifferWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Packet Sniffer" Height="300" Width="600">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="0">
+            <Button x:Name="StartButton" Content="Start" Click="StartButton_Click" Margin="5"/>
+            <!---->
+            <Button x:Name="StopButton" Content="Stop"  Margin="5"/>
+            <!--Click="StopButton_Click"-->
+        </StackPanel>
+        <ListView x:Name="PacketListView" Grid.Row="1" Margin="5">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Source" DisplayMemberBinding="{Binding SourceIpAddress}" Width="100"/>
+                    <GridViewColumn Header="Destination" DisplayMemberBinding="{Binding DestinationIpAddress}" Width="100"/>
+                    <GridViewColumn Header="Host" DisplayMemberBinding="{Binding SourceHostName}" Width="150"/>
+                    <GridViewColumn Header="Type" DisplayMemberBinding="{Binding PacketType}" Width="80"/>
+                    <GridViewColumn Header="Protocol" DisplayMemberBinding="{Binding Protocol}" Width="100"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>

@@ -1,7 +1,7 @@
 ﻿NetworkMonitor
 
 
-winexe
+exe
 C#
 .cs
 D:\Projects\NMS\NetworkMonitorApp\NetworkMonitor\obj\Debug\net8.0-windows\
@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 D:\Projects\NMS\NetworkMonitorApp\NetworkMonitor\App.xaml
-2-661874798
+3-112246640
 
-51253010256
-198-294894759
-InitializeWindow.xaml;MainWindow.xaml;
+11-666505975
+204133255122
+InitializeWindow.xaml;MainWindow.xaml;SnifferWindow.xaml;
 
 False
 

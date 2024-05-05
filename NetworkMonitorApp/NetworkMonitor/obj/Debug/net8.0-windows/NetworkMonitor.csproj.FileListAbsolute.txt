@@ -25,8 +25,17 @@ D:\Projects\NMS\NetworkMonitorApp\NetworkMonitor\bin\Debug\net8.0-windows\Networ
 D:\Projects\NMS\NetworkMonitorApp\NetworkMonitor\bin\Debug\net8.0-windows\NetworkMonitor.runtimeconfig.json
 D:\Projects\NMS\NetworkMonitorApp\NetworkMonitor\bin\Debug\net8.0-windows\NetworkMonitor.dll
 D:\Projects\NMS\NetworkMonitorApp\NetworkMonitor\bin\Debug\net8.0-windows\NetworkMonitor.pdb
+D:\Projects\NMS\NetworkMonitorApp\NetworkMonitor\bin\Debug\net8.0-windows\PacketDotNet.dll
+D:\Projects\NMS\NetworkMonitorApp\NetworkMonitor\bin\Debug\net8.0-windows\PcapDotNet.Base.dll
+D:\Projects\NMS\NetworkMonitorApp\NetworkMonitor\bin\Debug\net8.0-windows\PcapDotNet.Core.Extensions.dll
+D:\Projects\NMS\NetworkMonitorApp\NetworkMonitor\bin\Debug\net8.0-windows\PcapDotNet.Core.dll
+D:\Projects\NMS\NetworkMonitorApp\NetworkMonitor\bin\Debug\net8.0-windows\PcapDotNet.Packets.dll
+D:\Projects\NMS\NetworkMonitorApp\NetworkMonitor\bin\Debug\net8.0-windows\SharpPcap.dll
+D:\Projects\NMS\NetworkMonitorApp\NetworkMonitor\obj\Debug\net8.0-windows\NetworkMonitor.csproj.AssemblyReference.cache
+D:\Projects\NMS\NetworkMonitorApp\NetworkMonitor\obj\Debug\net8.0-windows\SnifferWindow.baml
 D:\Projects\NMS\NetworkMonitorApp\NetworkMonitor\obj\Debug\net8.0-windows\InitializeWindow.g.cs
 D:\Projects\NMS\NetworkMonitorApp\NetworkMonitor\obj\Debug\net8.0-windows\MainWindow.g.cs
+D:\Projects\NMS\NetworkMonitorApp\NetworkMonitor\obj\Debug\net8.0-windows\SnifferWindow.g.cs
 D:\Projects\NMS\NetworkMonitorApp\NetworkMonitor\obj\Debug\net8.0-windows\App.g.cs
 D:\Projects\NMS\NetworkMonitorApp\NetworkMonitor\obj\Debug\net8.0-windows\NetworkMonitor_MarkupCompile.cache
 D:\Projects\NMS\NetworkMonitorApp\NetworkMonitor\obj\Debug\net8.0-windows\NetworkMonitor_MarkupCompile.lref
@@ -38,6 +47,7 @@ D:\Projects\NMS\NetworkMonitorApp\NetworkMonitor\obj\Debug\net8.0-windows\Networ
 D:\Projects\NMS\NetworkMonitorApp\NetworkMonitor\obj\Debug\net8.0-windows\NetworkMonitor.AssemblyInfo.cs
 D:\Projects\NMS\NetworkMonitorApp\NetworkMonitor\obj\Debug\net8.0-windows\NetworkMonitor.csproj.CoreCompileInputs.cache
 D:\Projects\NMS\NetworkMonitorApp\NetworkMonitor\obj\Debug\net8.0-windows\NetworkMonitor.sourcelink.json
+D:\Projects\NMS\NetworkMonitorApp\NetworkMonitor\obj\Debug\net8.0-windows\NetworkMonitor.csproj.CopyComplete
 D:\Projects\NMS\NetworkMonitorApp\NetworkMonitor\obj\Debug\net8.0-windows\NetworkMonitor.dll
 D:\Projects\NMS\NetworkMonitorApp\NetworkMonitor\obj\Debug\net8.0-windows\refint\NetworkMonitor.dll
 D:\Projects\NMS\NetworkMonitorApp\NetworkMonitor\obj\Debug\net8.0-windows\NetworkMonitor.pdb

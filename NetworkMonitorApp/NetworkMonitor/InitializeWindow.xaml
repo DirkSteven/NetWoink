@@ -6,28 +6,23 @@
         xmlns:local="clr-namespace:NetworkMonitor"
         mc:Ignorable="d"
         WindowStartupLocation="CenterOwner"
-        
         Title="NIC Selection" Height="340" Width="545">
     <Border Padding="10">
-
         <StackPanel>
             <Grid Margin="0 0 0 20">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="120" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Label Grid.Column="0" Content="Select An Adaptor: "></Label>
-                <ComboBox x:Name="comboBox" Grid.Column="1" SelectionChanged="comboBox_SelectionChanged"></ComboBox>
-
+                <Label Grid.Column="0" Content="Select An Adapter:" />
+                <ComboBox x:Name="comboBox" DisplayMemberPath="Name" SelectionChanged="comboBox_SelectionChanged" Grid.Column="1" />
             </Grid>
-
             <Label x:Name="nicTypeLabel" Content="NIC Type:"/>
             <Label x:Name="ipAddressLabel" Content="IP Address:"/>
             <Label x:Name="macAddressLabel" Content="MAC Address:"/>
             <Label x:Name="gatewayLabel" Content="Gateway:"/>
             <Label x:Name="networkSSIDLabel" Content="Network SSID:"/>
             <Label x:Name="driverVersionLabel" Content="Driver Version:" Margin="0 0 0 20"/>
-
             <Grid Margin="300 0 0 20">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="73" />
@@ -36,27 +31,18 @@
                 <Button x:Name="QuitButton" Click="QuitButton_Click"  Grid.Column="0" Padding="0 0 0 0" 
                         Background="Transparent" BorderBrush="Transparent">
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="/Resources/color_cancel.png" Height="34" Width="33"></Image>
+                        <Image Source="/Resources/color_cancel.png" Height="34" Width="33" />
                         <TextBlock FontWeight="Bold" Width="40" Padding="10 10 0 0" Margin="0 0 0 0">Quit</TextBlock>
                     </StackPanel>
-
                 </Button>
-                <!--<Button x:Name="OKButton" Click="OKButton_Click" Grid.Column="1" Content="REFRESH" Margin="0 0 20 0 "></Button>-->
                 <Button x:Name="OKButton" Click="OKButton_Click"  Grid.Column="1" Padding="0 0 0 0" 
                         Background="Transparent" BorderBrush="Transparent">
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="/Resources/color_ok.png" Height="34" Width="35"></Image>
+                        <Image Source="/Resources/color_ok.png" Height="34" Width="35" />
                         <TextBlock FontWeight="Bold" Width="28" Padding="0 10 0 0" Margin="0 0 0 0">OK</TextBlock>
                     </StackPanel>
                 </Button>
             </Grid>
-
         </StackPanel>
-
-
-
-
-
     </Border>
-
 </Window>
