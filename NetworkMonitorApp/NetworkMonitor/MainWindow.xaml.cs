@@ -1,4 +1,4 @@
-﻿using NetworkMonitor;
+using NetworkMonitor;
 using System.Windows;
 using System.Net.NetworkInformation;
 using System.Net;
@@ -154,7 +154,10 @@ namespace NetworkMonitor
         private async void ScanButton_Click(object sender, RoutedEventArgs e)
         {
             // Clear existing devices
-            devices.Clear();
+            ClickToScanText.Text = "Scanning...";
+
+            ScanButton.Opacity = 0.3;
+            ScanButton.IsEnabled = false;
 
             // Get local IP address and subnet mask
             string localIPAddress = NetworkScan.GetLocalIPAddress();
@@ -184,6 +187,9 @@ namespace NetworkMonitor
             }
 
             networkScanned = true;
+            RefreshButton.Opacity = 1;
+            RefreshButton.IsEnabled = true;
+            ClickToScanText.Text = String.Empty ;
         }
 
         private void DeviceListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -208,8 +214,48 @@ namespace NetworkMonitor
 
 
 
-        private void RefreshButton_Click(object sender, RoutedEventArgs e)
+        private async void RefreshButton_Click(object sender, RoutedEventArgs e)
         {
+            devices.Clear();
+            ClickToScanText.Text = "Scanning...";
+
+            RefreshButton.Opacity = 0.3;
+            RefreshButton.IsEnabled = false;
+
+            // Get local IP address and subnet mask
+            string localIPAddress = NetworkScan.GetLocalIPAddress();
+            string subnetMask = NetworkScan.GetSubnetMask(localIPAddress);
+            string networkAddress = NetworkScan.GetNetworkAddress(localIPAddress, subnetMask);
+
+            // Scan network devices asynchronously
+            List<string> scannedDevices = await Task.Run(() => NetworkScan.ScanNetworkDevices(networkAddress, subnetMask));
+
+            // Populate the devices collection
+            foreach (string deviceInfo in scannedDevices)
+            {
+                string[] parts = deviceInfo.Split(new string[] { ", " }, StringSplitOptions.None);
+                string ip = parts[0].Trim().Substring(3);
+                string mac = parts[2].Trim().Substring(4);
+                string deviceName = parts[1].Trim().Substring(20);
+                string vendor = parts[3].Trim().Substring(8);
+
+                // Create a new Device object and add it to the collection
+                devices.Add(new Device
+                {
+                    IP = ip,
+                    MAC = mac,
+                    DeviceName = deviceName,
+                    Vendor = vendor
+                });
+            }
+
+            networkScanned = true;
+            RefreshButton.Opacity = 1;
+            RefreshButton.IsEnabled = true;
+            ClickToScanText.Text = String.Empty;
+
+
+
         }
 
 
@@ -245,8 +291,6 @@ namespace NetworkMonitor
                 MessageBox.Show("Please select a device before starting the sniffer.");
             }
         }
-
-
 
 
 
