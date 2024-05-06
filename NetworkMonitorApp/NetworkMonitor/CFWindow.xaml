@@ -49,7 +49,7 @@
                 </Grid.RowDefinitions>
 
                 <Label Content ="Device Info" Grid.Row="0" FontWeight="Bold" FontSize="20" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 10 0 0"></Label>
-                <GroupBox Grid.Row="0" Height="100" Width ="400" HorizontalAlignment="Left" BorderThickness="0" Margin="0 30 0 0">
+                <GroupBox Grid.Row="0" Height="130" Width ="400" HorizontalAlignment="Left" BorderThickness="0" Margin="0 30 0 0">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition />
@@ -59,15 +59,21 @@
                             <RowDefinition />
                             <RowDefinition />
                             <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
                         </Grid.RowDefinitions>
                   
                         <Label Content="IP Address" Grid.Row="0" Grid.Column="0" FontWeight="Bold"></Label>
-                        <Label Content="Device Type" Grid.Row="1" Grid.Column="0" FontWeight="Bold"></Label>
-                        <Label Content="Runtime" Grid.Row="2" Grid.Column="0" FontWeight="Bold"></Label>
+                        <Label Content="MAC Address" Grid.Row="1" Grid.Column="0" FontWeight="Bold"></Label>
+                        <Label Content="Device Type" Grid.Row="2" Grid.Column="0" FontWeight="Bold"></Label>
+                        <Label Content="Runtime" Grid.Row="3" Grid.Column="0" FontWeight="Bold"></Label>
+                        <Label Content="Rated Consumption" Grid.Row="4" Grid.Column="0" FontWeight="Bold"></Label>
 
-                        <Label x:Name="addressLbl" Content="1 " Grid.Row="0" Grid.Column="1"></Label>
-                        <Label x:Name="devtypeLbl" Content="1 " Grid.Row="1" Grid.Column="1"></Label>
-                        <Label x:Name="runtimeLbl" Content="1 " Grid.Row="2" Grid.Column="1"></Label>
+                        <Label x:Name="ipLbl" Content=" " Grid.Row="0" Grid.Column="1"></Label>
+                        <Label x:Name="macLbl" Content=" " Grid.Row="1" Grid.Column="1"></Label>
+                        <Label x:Name="devtypeLbl" Content=" " Grid.Row="2" Grid.Column="1"></Label>
+                        <Label x:Name="runtimeLbl" Content=" " Grid.Row="3" Grid.Column="1"></Label>
+                        <Label x:Name="rateLbl" Content=" " Grid.Row="4" Grid.Column="1"></Label>
                     </Grid>
                         
                 </GroupBox>
@@ -95,9 +101,9 @@
                         <Label Grid.Row="2" Grid.Column="0" Content="Daily Carbon Footprint" FontWeight="Bold"></Label>
                         <Label Grid.Row="3" Grid.Column="0" Content="Total Carbon Footprint" FontWeight="Bold"></Label>
 
-                        <Label x:Name="annualCFLbl" Grid.Row="1" Grid.Column="1" Content="1 "></Label>
-                        <Label x:Name="dailyCFLbl" Grid.Row="2" Grid.Column="1" Content="1 "></Label>
-                        <Label x:Name="totalCFLbl" Grid.Row="3" Grid.Column="1" Content="1 "></Label>
+                        <Label x:Name="annualCFLbl" Grid.Row="1" Grid.Column="1" Content=" "></Label>
+                        <Label x:Name="dailyCFLbl" Grid.Row="2" Grid.Column="1" Content=" "></Label>
+                        <Label x:Name="totalCFLbl" Grid.Row="3" Grid.Column="1" Content=" "></Label>
 
 
                     </Grid>

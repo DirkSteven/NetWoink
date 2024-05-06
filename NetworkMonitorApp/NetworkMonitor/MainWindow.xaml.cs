@@ -272,8 +272,23 @@ namespace NetworkMonitor
 
         private void DevicesButton_Click(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("Devices");
-            MessageBox.Show("Devices");
+
+            
+            
+            Device selectedDevice = null;
+            foreach (var device in devices)
+            {
+                if (device.IsSelected)
+                {
+                    selectedDevice = device;
+                    break;
+                }
+            }
+            CFWindow cfWindow = new CFWindow(selectedDevice.IP,selectedDevice.MAC);
+            cfWindow.Show();    
         }
+
+
+        
     }
 }

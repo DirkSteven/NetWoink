@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Users\monte\OneDrive\Documents\school\CS\221\NMS\NetworkMonitorApp\NetworkMonitor\App.xaml
-3-112246640
+51906566767
 
-11-666505975
+16-688355054
 204836870251
-InitializeWindow.xaml;MainWindow.xaml;SnifferWindow.xaml;
+AboutWindow.xaml;CFWindow.xaml;InitializeWindow.xaml;MainWindow.xaml;SnifferWindow.xaml;
 
 False
 

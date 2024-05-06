@@ -12,63 +12,150 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.IO;
+using System.Net.Http;
+using System.Threading.Tasks;
+using System.Net;
+using System.Numerics;
+using System.Diagnostics;
 
 namespace NetworkMonitor
 {
     /// <summary>
     /// Interaction logic for CFWindow.xaml
     /// </summary>
-    public partial class CFWindow : Window
-    {
-        private Dictionary<string, string> macManufacturerMap;
 
+
+
+    public partial class CFWindow : Window
+    { 
         // Power consumption of the device in watts
         private double powerConsumption;
 
-        // Runtime of the device in hours per day
-        private double runtimePerDay;
+        private int PhoneRatedConsumption = 5;
+        private int DesktopRatedConsumption = 200;
 
-        // Carbon intensity of electricity in kgCO2/kWh
-        private double carbonIntensity;
+        private const string macApiBaseUrl = "https://api.macvendors.com/";
 
-        public CFWindow()
+        private DateTime buildTime;
+
+        private string cfWindowIP;
+        private string cfWindowMAC;
+
+        public CFWindow(string IP, string MAC)
         {
             InitializeComponent();
-            LoadOuiDatabase(); // Load OUI database on startup
-            Version clrVersion = Environment.Version;
-           
+            cfWindowIP = IP;
+            cfWindowMAC = MAC;
+
+            Console.WriteLine("CFWINDOWIP:" + cfWindowIP);
+            Console.WriteLine("CFWINDOWMAC:" + cfWindowMAC);
+
+
+            ipLbl.Content = cfWindowIP;
+            macLbl.Content = cfWindowMAC;
+
+            LoadVendorInformation();
+
             // Initialize values (you can retrieve these from user input or configuration)
-            powerConsumption = 50; // Example: 50 watts
-            runtimePerDay = 4; // Example: 4 hours
-            carbonIntensity = 0.5; // Example: 0.5 kgCO2/kWh
+            /*  powerConsumption = 50;*/ // Example: 50 watts
+            buildTime = RetrieveBuildTime();
+            TimeSpan runtimeSinceBuild = DateTime.Now - buildTime;
+            double hoursSinceBuild = runtimeSinceBuild.TotalHours;
 
-            // Calculate annual carbon footprint
-            double annualEnergyConsumption = CalculateAnnualEnergyConsumption(powerConsumption, runtimePerDay);
-            double annualCarbonFootprint = CalculateAnnualCarbonFootprint(annualEnergyConsumption, carbonIntensity);
+            Console.WriteLine($"Runtime since build: {runtimeSinceBuild}");
+            Console.WriteLine($"Runtime since build: {hoursSinceBuild} hours");
 
-            string runtime = GetRuntimeName(clrVersion);
-            runtimeLbl.Content = runtime;
+            //runtimePerDay = 4; // Example: 4 hours
 
+            runtimeLbl.Content = hoursSinceBuild;
+            double carbonIntensity = 0.667;
+            powerConsumption = getpowerConsumption();
+
+            // Calculate carbon footprint
+            Console.WriteLine($"{carbonIntensity}, {powerConsumption}");
+
+            double dailyCarbonFootprint = CalculateDailyCarbonFootprint(powerConsumption, carbonIntensity);
+            double annualCarbonFootprint = CalculateAnnualCarbonFootprint(dailyCarbonFootprint);
+            double totalCarbonFootprint = CalculateTotalCarbonFootprint(powerConsumption, hoursSinceBuild, carbonIntensity);
+
+            
+            Console.WriteLine($"Annual Carbon Footprint: {annualCarbonFootprint} kgCO2");
+            Console.WriteLine($"Daily Carbon Footprint: {dailyCarbonFootprint} kgCO2");
+            Console.WriteLine($"Total Carbon Footprint: {totalCarbonFootprint} kgCO2");
+
+            annualCFLbl.Content = annualCarbonFootprint;
+            dailyCFLbl.Content = dailyCarbonFootprint;
+            totalCFLbl.Content = totalCarbonFootprint;
 
         }
-        private void LoadOuiDatabase()
-        {
-            macManufacturerMap = new Dictionary<string, string>();
 
-            // Assuming oui.txt is the downloaded OUI database
-            string[] lines = File.ReadAllLines("Resources/ieee-oui-database.txt");
-            foreach (string line in lines)
+        private async void LoadVendorInformation()
+        {
+            try
             {
-                // Sample line: "00:00:00   (hex)       XEROX CORPORATION"
-                string[] parts = line.Split('\t');
-                if (parts.Length >= 3)
+                string vendor = await GetVendor(cfWindowMAC);
+                Console.WriteLine($"Vendor for MAC address {cfWindowMAC}: {vendor}");
+                string devtype = InferDeviceType(vendor);
+                devtypeLbl.Content = devtype;
+
+                if (devtype.Contains("Phone"))
                 {
-                    string oui = parts[0].Replace(":", "").Substring(0, 6).ToUpper();
-                    string manufacturer = parts[2];
-                    macManufacturerMap[oui] = manufacturer;
+                    powerConsumption = PhoneRatedConsumption;
+                }
+                else if (devtype.Contains("Laptop")) {
+                    powerConsumption = DesktopRatedConsumption;
+                }
+                else
+                {
+                    powerConsumption = PhoneRatedConsumption;
+                }
+
+                rateLbl.Content = powerConsumption;
+                setpowerConsumption(powerConsumption);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred: {ex.Message}");
+                devtypeLbl.Content = "Phone";
+                powerConsumption = PhoneRatedConsumption;
+                rateLbl.Content = powerConsumption;
+                
+            }
+        }
+
+       private void setpowerConsumption(double powerConsumption)
+        {
+            this.powerConsumption = powerConsumption;
+        }
+
+       double getpowerConsumption()
+        {
+            return powerConsumption;
+        }
+
+        private async Task<string> GetVendor(string macAddress)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(macApiBaseUrl);
+
+                HttpResponseMessage response = await client.GetAsync(macAddress);
+                if (response.IsSuccessStatusCode)
+                {
+                    return await response.Content.ReadAsStringAsync();
+                }
+                else if (response.StatusCode == HttpStatusCode.NotFound)
+                {
+                    throw new Exception("MAC address not found.");
+                }
+                else
+                {
+                    throw new Exception($"Unexpected response: {response.StatusCode}");
                 }
             }
         }
+
+
         private string InferDeviceType(string manufacturer)
         {
             // Example: You might have a mapping of manufacturers to device types
@@ -77,65 +164,44 @@ namespace NetworkMonitor
             {
                 return "iPhone"; // Example: Apple devices
             }
-            else if (manufacturer.Contains("Microsoft"))
+            else if (manufacturer.Contains("Microsoft") || manufacturer.Contains("Intel"))
             {
-                return "Surface"; // Example: Microsoft devices
+                return "Laptop"; // Example: Microsoft devices
             }
             else
             {
-                return "Unknown"; // Unknown device type
+                return "Phone"; // Unknown device type
             }
         }
-        private string GetRuntimeName(Version version)
+        private DateTime RetrieveBuildTime()
         {
-            // Check the major and minor version numbers to determine the CLR version
-            if (version.Major == 2 && version.Minor == 0)
-            {
-                return ".NET Framework 2.0";
-            }
-            else if (version.Major == 4 && version.Minor == 0)
-            {
-                return ".NET Framework 4.0";
-            }
-            else if (version.Major == 4 && version.Minor == 5)
-            {
-                return ".NET Framework 4.5";
-            }
-            else if (version.Major == 4 && version.Minor == 6)
-            {
-                return ".NET Framework 4.6";
-            }
-            else
-            {
-                return $"Unknown CLR Version: {version}";
-            }
+            // Get the creation time of the application executable
+            string appPath = Process.GetCurrentProcess().MainModule.FileName;
+            DateTime creationTime = System.IO.File.GetCreationTime(appPath);
+            return creationTime;
         }
 
-        // Calculate the annual energy consumption in kWh
-        private double CalculateAnnualEnergyConsumption(double powerConsumption, double runtimePerDay)
+        public static double CalculateDailyCarbonFootprint(double energyConsumption, double carbonIntensity)
         {
-            // Convert power consumption from watts to kilowatts
-            double powerConsumptionKw = powerConsumption / 1000;
-
-            // Calculate daily energy consumption in kWh
-            double dailyEnergyConsumption = powerConsumptionKw * runtimePerDay;
-
-            // Calculate annual energy consumption assuming 365 days in a year
-            double annualEnergyConsumption = dailyEnergyConsumption * 365;
-
-            return annualEnergyConsumption;
+            Console.WriteLine($"{energyConsumption} * {carbonIntensity}");
+            return energyConsumption * carbonIntensity;
         }
 
-        // Calculate the annual carbon footprint in kgCO2
-        private double CalculateAnnualCarbonFootprint(double annualEnergyConsumption, double carbonIntensity)
+        public static double CalculateAnnualCarbonFootprint(double dailyCarbonFootprint)
         {
-            // Calculate annual carbon footprint
-            double annualCarbonFootprint = annualEnergyConsumption * carbonIntensity;
-            return annualCarbonFootprint;
+            return dailyCarbonFootprint * 365;
         }
+
+        public static double CalculateTotalCarbonFootprint(double powerConsumption, double runtimehrs, double carbonIntensity)
+        {
+            double totalEnergyConsumption = (powerConsumption * runtimehrs) / 1000; // Convert watts to kW
+            return totalEnergyConsumption * carbonIntensity;
+        }
+
         private void CFBackBtn_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
     }
 }
+  

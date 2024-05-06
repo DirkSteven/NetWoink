@@ -86,3 +86,8 @@ C:\Users\monte\OneDrive\Documents\school\CS\221\NMS\NetworkMonitorApp\NetworkMon
 C:\Users\monte\OneDrive\Documents\school\CS\221\NMS\NetworkMonitorApp\NetworkMonitor\obj\Debug\net8.0-windows\NetworkMonitor.pdb
 C:\Users\monte\OneDrive\Documents\school\CS\221\NMS\NetworkMonitorApp\NetworkMonitor\obj\Debug\net8.0-windows\NetworkMonitor.genruntimeconfig.cache
 C:\Users\monte\OneDrive\Documents\school\CS\221\NMS\NetworkMonitorApp\NetworkMonitor\obj\Debug\net8.0-windows\ref\NetworkMonitor.dll
+C:\Users\monte\OneDrive\Documents\school\CS\221\NMS\NetworkMonitorApp\NetworkMonitor\obj\Debug\net8.0-windows\AboutWindow.g.cs
+C:\Users\monte\OneDrive\Documents\school\CS\221\NMS\NetworkMonitorApp\NetworkMonitor\obj\Debug\net8.0-windows\CFWindow.g.cs
+C:\Users\monte\OneDrive\Documents\school\CS\221\NMS\NetworkMonitorApp\NetworkMonitor\obj\Debug\net8.0-windows\AboutWindow.baml
+C:\Users\monte\OneDrive\Documents\school\CS\221\NMS\NetworkMonitorApp\NetworkMonitor\obj\Debug\net8.0-windows\CFWindow.baml
+C:\Users\monte\OneDrive\Documents\school\CS\221\NMS\NetworkMonitorApp\NetworkMonitor\bin\Debug\net8.0-windows\NetworkMonitor.dll.config
