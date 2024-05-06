@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NetworkMonitor")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e242d4a39dc8707de8b9f9d4fd46ee4826b1d609")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+43692e418fa60fd5cb75daeb87ffe01b3e4bb26c")]
 [assembly: System.Reflection.AssemblyProductAttribute("NetworkMonitor")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NetworkMonitor")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
