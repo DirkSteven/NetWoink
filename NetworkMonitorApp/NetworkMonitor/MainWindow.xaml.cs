@@ -153,6 +153,12 @@ namespace NetworkMonitor
 
         private async void ScanButton_Click(object sender, RoutedEventArgs e)
         {
+            if (devices.Any(device => device.IsSelected))
+            {
+                MessageBox.Show("Cannot scan while devices are selected.");
+                return;
+            }
+
             // Clear existing devices
             ClickToScanText.Text = "Scanning...";
 
@@ -188,8 +194,12 @@ namespace NetworkMonitor
 
             networkScanned = true;
             RefreshButton.Opacity = 1;
+            DevicesButton.Opacity = 1;
+            bgrec.Fill = new SolidColorBrush(System.Windows.Media.Color.FromRgb(98, 94, 94));
             RefreshButton.IsEnabled = true;
-            ClickToScanText.Text = String.Empty ;
+            DevicesButton.IsEnabled = true;
+            ClickToScanText.Text = String.Empty;
+
         }
 
         private void DeviceListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -216,8 +226,16 @@ namespace NetworkMonitor
 
         private async void RefreshButton_Click(object sender, RoutedEventArgs e)
         {
+            if (devices.Any(device => device.IsSelected))
+            {
+                MessageBox.Show("Cannot scan while devices are selected.");
+                return;
+            }
+
             devices.Clear();
             ClickToScanText.Text = "Scanning...";
+            DevicesButton.IsEnabled = false;
+            DevicesButton.Opacity =0.3;
 
             RefreshButton.Opacity = 0.3;
             RefreshButton.IsEnabled = false;
@@ -252,6 +270,8 @@ namespace NetworkMonitor
             networkScanned = true;
             RefreshButton.Opacity = 1;
             RefreshButton.IsEnabled = true;
+            RefreshButton.IsEnabled = true;
+            RefreshButton.Opacity = 1;
             ClickToScanText.Text = String.Empty;
 
 
@@ -303,6 +323,8 @@ namespace NetworkMonitor
 
 
 
+
+
         private void OptionButton_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Option");
@@ -310,13 +332,35 @@ namespace NetworkMonitor
 
         private void AboutButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("About");
+            AboutWindow abtWindow = new AboutWindow();
+            abtWindow.Show();
         }
 
         private void DevicesButton_Click(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("Devices");
-            MessageBox.Show("Devices");
+            Device selectedDevice = null;
+            foreach (var device in devices)
+            {
+                if (device.IsSelected)
+                {
+                    selectedDevice = device;
+                    break;
+                }
+            }
+
+            if (selectedDevice != null)
+            {
+                // A device is selected, proceed to create CFWindow
+                CFWindow cfWindow = new CFWindow(selectedDevice.IP, selectedDevice.MAC, selectedDevice.Vendor);
+                cfWindow.Show();
+            }
+            else
+            {
+                MessageBox.Show("Please select a device before viewing details.");
+            }
         }
+
+
+
     }
 }
