@@ -284,7 +284,7 @@ namespace NetworkMonitor
                     break;
                 }
             }
-            CFWindow cfWindow = new CFWindow(selectedDevice.IP,selectedDevice.MAC);
+            CFWindow cfWindow = new CFWindow(selectedDevice.IP,selectedDevice.MAC, selectedDevice.Vendor);
             cfWindow.Show();    
         }
 

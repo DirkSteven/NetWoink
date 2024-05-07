@@ -9,7 +9,7 @@ namespace NetworkMonitor
 {
     public class NetworkScan
     {
-        private static readonly TimeSpan Timeout = TimeSpan.FromSeconds(30);
+        private static readonly TimeSpan Timeout = TimeSpan.FromSeconds(10);
 
         public static List<string> ScanNetworkDevices(string networkAddressString, string subnetMaskString)
         {

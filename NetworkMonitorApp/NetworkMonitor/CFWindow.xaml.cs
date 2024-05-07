@@ -31,8 +31,8 @@ namespace NetworkMonitor
         // Power consumption of the device in watts
         private double powerConsumption;
 
-        private int PhoneRatedConsumption = 5;
-        private int DesktopRatedConsumption = 200;
+        private double PhoneRatedConsumption = 5;
+        private double DesktopRatedConsumption = 200;
 
         private const string macApiBaseUrl = "https://api.macvendors.com/";
 
@@ -40,12 +40,14 @@ namespace NetworkMonitor
 
         private string cfWindowIP;
         private string cfWindowMAC;
+        private string cfWindowVendor;
 
-        public CFWindow(string IP, string MAC)
+        public CFWindow(string IP, string MAC, string vendor)
         {
             InitializeComponent();
             cfWindowIP = IP;
             cfWindowMAC = MAC;
+            cfWindowVendor = vendor;
 
             Console.WriteLine("CFWINDOWIP:" + cfWindowIP);
             Console.WriteLine("CFWINDOWMAC:" + cfWindowMAC);
@@ -54,8 +56,10 @@ namespace NetworkMonitor
             ipLbl.Content = cfWindowIP;
             macLbl.Content = cfWindowMAC;
 
-            LoadVendorInformation();
+            string devtype = LoadVendorInformation(cfWindowVendor);
+            powercons(devtype);
 
+            Console.WriteLine("LVI:" + this.powerConsumption);
             // Initialize values (you can retrieve these from user input or configuration)
             /*  powerConsumption = 50;*/ // Example: 50 watts
             buildTime = RetrieveBuildTime();
@@ -69,12 +73,11 @@ namespace NetworkMonitor
 
             runtimeLbl.Content = hoursSinceBuild;
             double carbonIntensity = 0.667;
-            powerConsumption = getpowerConsumption();
 
             // Calculate carbon footprint
-            Console.WriteLine($"{carbonIntensity}, {powerConsumption}");
+            Console.WriteLine($"{carbonIntensity}, {this.powerConsumption}");
 
-            double dailyCarbonFootprint = CalculateDailyCarbonFootprint(powerConsumption, carbonIntensity);
+            double dailyCarbonFootprint = CalculateDailyCarbonFootprint(this.powerConsumption, carbonIntensity);
             double annualCarbonFootprint = CalculateAnnualCarbonFootprint(dailyCarbonFootprint);
             double totalCarbonFootprint = CalculateTotalCarbonFootprint(powerConsumption, hoursSinceBuild, carbonIntensity);
 
@@ -89,71 +92,76 @@ namespace NetworkMonitor
 
         }
 
-        private async void LoadVendorInformation()
+        private string LoadVendorInformation(string vendor)
         {
-            try
-            {
-                string vendor = await GetVendor(cfWindowMAC);
+            //try
+            //{
+                
                 Console.WriteLine($"Vendor for MAC address {cfWindowMAC}: {vendor}");
                 string devtype = InferDeviceType(vendor);
                 devtypeLbl.Content = devtype;
+                return devtype;
 
-                if (devtype.Contains("Phone"))
-                {
-                    powerConsumption = PhoneRatedConsumption;
-                }
-                else if (devtype.Contains("Laptop")) {
-                    powerConsumption = DesktopRatedConsumption;
-                }
-                else
-                {
-                    powerConsumption = PhoneRatedConsumption;
-                }
 
-                rateLbl.Content = powerConsumption;
-                setpowerConsumption(powerConsumption);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"An error occurred: {ex.Message}");
-                devtypeLbl.Content = "Phone";
-                powerConsumption = PhoneRatedConsumption;
-                rateLbl.Content = powerConsumption;
+            //}
+            //catch (Exception ex)
+            //{
+            //    Console.WriteLine($"An error occurred: {ex.Message}");
+            //    Console.WriteLine ("LVI Exception");
+            //    devtypeLbl.Content = "Phone";
+            //    powerConsumption = PhoneRatedConsumption;
+            //    rateLbl.Content = powerConsumption;
                 
-            }
+            //}
         }
 
-       private void setpowerConsumption(double powerConsumption)
+        private void powercons(string devtype)
         {
-            this.powerConsumption = powerConsumption;
-        }
-
-       double getpowerConsumption()
-        {
-            return powerConsumption;
-        }
-
-        private async Task<string> GetVendor(string macAddress)
-        {
-            using (HttpClient client = new HttpClient())
+            if (devtype.Contains("Phone"))
             {
-                client.BaseAddress = new Uri(macApiBaseUrl);
-
-                HttpResponseMessage response = await client.GetAsync(macAddress);
-                if (response.IsSuccessStatusCode)
-                {
-                    return await response.Content.ReadAsStringAsync();
-                }
-                else if (response.StatusCode == HttpStatusCode.NotFound)
-                {
-                    throw new Exception("MAC address not found.");
-                }
-                else
-                {
-                    throw new Exception($"Unexpected response: {response.StatusCode}");
-                }
+                Console.WriteLine("Phone adasdsasa");
+                this.powerConsumption = this.PhoneRatedConsumption;
             }
+            else if (devtype.Contains("Desktop"))
+            {
+                Console.WriteLine("Desktop");
+                Console.WriteLine("powerconsbefore" + powerConsumption);
+                Console.WriteLine("deskpowerconsbefore" + DesktopRatedConsumption);
+                this.powerConsumption = this.DesktopRatedConsumption;
+                Console.WriteLine("powerconsafetrr" + powerConsumption);
+                Console.WriteLine("deskpowerconsbeafter" + DesktopRatedConsumption);
+            }
+            else
+            {
+                Console.WriteLine("Else asdsasagasgsa");
+                this.powerConsumption = this.PhoneRatedConsumption;
+            }
+
+            rateLbl.Content = this.powerConsumption;
         }
+
+
+        //private async Task<string> GetVendor(string macAddress)
+        //{
+        //    using (HttpClient client = new HttpClient())
+        //    {
+        //        client.BaseAddress = new Uri(macApiBaseUrl);
+
+        //        HttpResponseMessage response = await client.GetAsync(macAddress);
+        //        if (response.IsSuccessStatusCode)
+        //        {
+        //            return await response.Content.ReadAsStringAsync();
+        //        }
+        //        else if (response.StatusCode == HttpStatusCode.NotFound)
+        //        {
+        //            throw new Exception("MAC address not found.");
+        //        }
+        //        else
+        //        {
+        //            throw new Exception($"Unexpected response: {response.StatusCode}");
+        //        }
+        //    }
+        //}
 
 
         private string InferDeviceType(string manufacturer)
@@ -164,9 +172,9 @@ namespace NetworkMonitor
             {
                 return "iPhone"; // Example: Apple devices
             }
-            else if (manufacturer.Contains("Microsoft") || manufacturer.Contains("Intel"))
+            else if (manufacturer.Contains("Microsoft") || manufacturer.Contains("Intel") || manufacturer.Contains("Liteon"))
             {
-                return "Laptop"; // Example: Microsoft devices
+                return "Desktop"; // Example: Microsoft devices
             }
             else
             {
