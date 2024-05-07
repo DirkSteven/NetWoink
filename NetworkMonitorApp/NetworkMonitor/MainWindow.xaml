@@ -29,12 +29,46 @@
                     </Setter.Value>
                 </Setter>
             </Style>
+            <Style TargetType="GridViewColumnHeader">
+                <Setter Property="Background" Value="#323030"/>
+                <Setter Property="Foreground" Value="WHite"/>
+            </Style>
+
+            <Style  TargetType="ListView">
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="BorderThickness" Value="0"/>
+
+            </Style>
+
+
+            <Style TargetType="{x:Type ListViewItem}">
+                <Setter Property="Background" Value="#323030" />
+                <Setter Property="BorderBrush" Value="Transparent"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type ListViewItem}">
+                            <Grid Background="{TemplateBinding Background}">
+                                <Border Name="Selection" Visibility="Collapsed" />
+                                <GridViewRowPresenter Grid.RowSpan="2"
+                                          Margin="{TemplateBinding Padding}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+
         </ResourceDictionary>
     </Window.Resources>
     <Border Padding="10" Background="#323030">
         <Grid>
             <TextBlock x:Name="ClickToScanText" Text="Click 'Scan' to see devices" HorizontalAlignment="Center" Margin="0,168,0,232" Foreground="White"/>
-            <ListView x:Name="DeviceListView" SelectionMode="Single" VerticalAlignment="Top" Margin="10" Grid.Row="1">
+            <ListView x:Name="DeviceListView" SelectionMode="Single" VerticalAlignment="Top" Margin="20,10,0,0">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Select" Width="50">
@@ -48,7 +82,8 @@
                         <GridViewColumn Header="IP Address" DisplayMemberBinding="{Binding IP}" Width="150"/>
                         <GridViewColumn Header="MAC Address" DisplayMemberBinding="{Binding MAC}" Width="150"/>
                         <GridViewColumn Header="Device Name" DisplayMemberBinding="{Binding DeviceName}" Width="150"/>
-                        <GridViewColumn Header="Vendor" DisplayMemberBinding="{Binding Vendor}" Width="150"/>
+                        <GridViewColumn Header="Vendor" DisplayMemberBinding="{Binding Vendor}" Width="260"/>
+
                     </GridView>
                 </ListView.View>
             </ListView>
@@ -63,11 +98,11 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
                 <Button x:Name="ScanButton" Click="ScanButton_Click"  Grid.Column="0" Content="SCAN"  />
-                <Button x:Name="RefreshButton" Click="RefreshButton_Click" Grid.Column="1" Content="REFRESH"/>
+                <Button x:Name="RefreshButton" Click="RefreshButton_Click" Grid.Column="1" Content="REFRESH" Opacity="0.3" IsEnabled ="False"/>
                 <Button x:Name="SnifferBuutton" Click="SnifferButton_Click" Grid.Column="2" Content="SNIFFER"/>
                 <Button x:Name="OptionButton" Click="OptionButton_Click" Grid.Column="3" Content="OPTION"/>
                 <Button x:Name="AboutButton" Click="AboutButton_Click" Grid.Column="4" Content="ABOUT"/>
-                <Button x:Name="DevicesButton" Click="DevicesButton_Click" Grid.Column="5" Content="DEVICES: "/>
+                <Button x:Name="DevicesButton" Click="DevicesButton_Click" Grid.Column="5" Content="DEVICES: "  Opacity="0.3" IsEnabled ="False"/>
             </Grid>
         </Grid>
     </Border>
