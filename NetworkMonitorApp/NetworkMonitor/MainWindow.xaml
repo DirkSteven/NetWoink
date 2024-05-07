@@ -98,7 +98,7 @@
 
             <TextBlock x:Name="ClickToScanText" Text="Click 'Scan' to see devices" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
 
-            <ListView x:Name="DeviceListView" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,50,0,0" Grid.ColumnSpan="2">
+            <ListView x:Name="DeviceListView" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="35,55,0,0">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="      " Width="50">

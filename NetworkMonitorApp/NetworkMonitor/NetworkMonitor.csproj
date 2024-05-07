@@ -27,6 +27,9 @@
     <None Remove="Resources\color_info.PNG" />
     <None Remove="Resources\color_ok.PNG" />
     <None Remove="Resources\icons8-ok-red.png" />
+    <None Remove="Resources\leaf.png" />
+    <None Remove="Resources\manicon.png" />
+    <None Remove="Resources\peppa.png" />
     <None Remove="Resources\spinB.gif" />
     <None Remove="Resources\spinW.gif" />
   </ItemGroup>
@@ -38,6 +41,9 @@
     <Resource Include="Resources\color_info.PNG" />
     <Resource Include="Resources\color_ok.PNG" />
     <Resource Include="Resources\icons8-ok-red.png" />
+    <Resource Include="Resources\leaf.png" />
+    <Resource Include="Resources\manicon.png" />
+    <Resource Include="Resources\peppa.png" />
     <Resource Include="Resources\spinB.gif" />
     <Resource Include="Resources\spinW.gif" />
   </ItemGroup>
@@ -52,9 +58,21 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Update="SnifferWindow - Copy.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 
 </Project>

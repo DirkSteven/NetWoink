@@ -1,4 +1,4 @@
-using NetworkMonitor;
+﻿using NetworkMonitor;
 using System.Windows;
 using System.Net.NetworkInformation;
 using System.Net;
@@ -87,7 +87,7 @@ namespace NetworkMonitor
                 Console.WriteLine("Error: selectedAdapter is null.");
             }
         }
-        
+
 
         private PacketDevice GetPacketDevice(NetworkInterface networkInterface)
         {
@@ -235,7 +235,7 @@ namespace NetworkMonitor
             devices.Clear();
             ClickToScanText.Text = "Scanning...";
             DevicesButton.IsEnabled = false;
-            DevicesButton.Opacity =0.3;
+            DevicesButton.Opacity = 0.3;
 
             RefreshButton.Opacity = 0.3;
             RefreshButton.IsEnabled = false;

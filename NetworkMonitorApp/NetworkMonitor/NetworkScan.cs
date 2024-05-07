@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Net;
 using System.Net.NetworkInformation;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace NetworkMonitor
 {
     public class NetworkScan
     {
-        private static readonly TimeSpan Timeout = TimeSpan.FromSeconds(20);
+        private static readonly TimeSpan Timeout = TimeSpan.FromSeconds(30);
 
         public static List<string> ScanNetworkDevices(string networkAddressString, string subnetMaskString)
         {
@@ -87,7 +88,7 @@ namespace NetworkMonitor
             }
         }
 
-        private static string ArpResolve(IPAddress ipAddress)
+        public static string ArpResolve(IPAddress ipAddress)
         {
             try
             {
@@ -97,12 +98,27 @@ namespace NetworkMonitor
 
                 if (ret == 0)
                 {
-                    PhysicalAddress physicalAddress = new PhysicalAddress(macAddressBytes);
                     string macAddressString = BitConverter.ToString(macAddressBytes).Replace("-", ":");
-                    string oui = macAddressString.Substring(0, 8); // Extract the first 3 bytes (OUI)
-                    string vendorName = LookupVendorName(oui);
-                    string deviceName = GetDeviceName(ipAddress);
-                    return $"Device Name: {deviceName}, MAC: {macAddressString}, Vendor: {vendorName}";
+
+                    // Check if MAC address is valid
+                    if (!IsValidMACAddress(macAddressString))
+                    {
+                        Console.WriteLine($"Invalid MAC address: {macAddressString}");
+                        return null;
+                    }
+
+                    // Pass the complete MAC address string to LookupVendorName method
+                    string vendorName = LookupVendorName(macAddressString);
+
+                    if (vendorName != null)
+                    {
+                        string deviceName = GetDeviceName(ipAddress);
+                        return $"Device Name: {deviceName}, MAC: {macAddressString}, Vendor: {vendorName}";
+                    }
+                    else
+                    {
+                        return null;
+                    }
                 }
                 else
                 {
@@ -180,11 +196,64 @@ namespace NetworkMonitor
             }
         }
 
-        private static string LookupVendorName(string oui)
+        private static string LookupVendorName(string macAddress)
         {
-            // Implement vendor lookup logic here
-            return "Unknown";
+            try
+            {
+                // Format the MAC address string
+                string formattedMAC = FormatMACAddress(macAddress);
+
+                // Call the VendorAPI to get vendor information based on the formatted MAC address
+                Console.WriteLine($"Sending request to macvendors.com API for MAC address: {formattedMAC}");
+                var vendorInfoTask = VendorAPI.GetVendorInfo(formattedMAC);
+
+                // Await for the response
+                VendorClass vendorInfo = vendorInfoTask.Result;
+
+                // Log the response from the API
+                if (vendorInfo != null && vendorInfo.data != null)
+                {
+                    Console.WriteLine($"Received response from macvendors.com API: {vendorInfo}");
+                    return vendorInfo.data.organization_name;
+                }
+                else
+                {
+                    Console.WriteLine($"No vendor information received from macvendors.com API.");
+                    return "Unknown";
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log any errors that occur during the API request
+                Console.WriteLine($"Error looking up vendor name: {ex.Message}");
+                return "Unknown";
+            }
         }
+
+        private static string FormatMACAddress(string macAddress)
+        {
+            // Remove any non-hexadecimal characters
+            string cleanedMAC = Regex.Replace(macAddress, "[^0-9A-Fa-f]", "");
+
+            // Insert colons after every 2 characters
+            return string.Join(":", Enumerable.Range(0, cleanedMAC.Length / 2).Select(i => cleanedMAC.Substring(i * 2, 2)));
+        }
+
+        private static bool IsValidMACAddress(string macAddress)
+        {
+            // Remove any non-hexadecimal characters
+            string cleanedMAC = Regex.Replace(macAddress, "[^0-9A-Fa-f]", "");
+
+            // Check if the cleaned MAC address has the correct length (12 characters)
+            if (cleanedMAC.Length != 12)
+            {
+                return false;
+            }
+
+            // MAC address is considered valid
+            return true;
+        }
+
 
         // Native methods for ARP resolution
         private class NativeMethods

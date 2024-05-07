@@ -4,17 +4,17 @@
 exe
 C#
 .cs
-D:\Projects\NMS\NetworkMonitorApp\NetworkMonitor\obj\Debug\net8.0-windows\
+C:\Users\Vvela\Desktop\NMS\NetworkMonitorApp\NetworkMonitor\obj\Debug\net8.0-windows\
 NetworkMonitor
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-D:\Projects\NMS\NetworkMonitorApp\NetworkMonitor\App.xaml
-3-112246640
+C:\Users\Vvela\Desktop\NMS\NetworkMonitorApp\NetworkMonitor\App.xaml
+51906566767
 
-131533675449
-204133255122
-InitializeWindow.xaml;MainWindow.xaml;SnifferWindow.xaml;
+181511826370
+204-671733460
+AboutWindow.xaml;CFWindow.xaml;InitializeWindow.xaml;MainWindow.xaml;SnifferWindow.xaml;
 
 False
 
