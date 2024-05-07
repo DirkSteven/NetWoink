@@ -79,11 +79,12 @@
                 </GroupBox>
                 
                 
-                <GroupBox Grid.Row="1" Height="150" Width ="400" VerticalAlignment="Top" HorizontalAlignment="Left" BorderThickness="0">
+                <GroupBox Grid.Row="1" Height="150" Width ="500" VerticalAlignment="Top" HorizontalAlignment="Left" BorderThickness="0">
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition />
-                            <ColumnDefinition />
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition />
@@ -91,19 +92,22 @@
                             <RowDefinition />
                             <RowDefinition />
                         </Grid.RowDefinitions>
-                        <Border Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" BorderThickness="0 0 0 1" BorderBrush="#ffffff">
-                             <Label Content="Carbon emission" FontWeight="Bold" FontSize="14" VerticalAlignment="Top"/>
-                        </Border>
-                       
                         
+                        <Border Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" BorderThickness="0 0 0 1" BorderBrush="#ffffff">
+                            <Label Content="Carbon emission" FontWeight="Bold" FontSize="14" VerticalAlignment="Top"/>
+                        </Border>
+
+                        <Label Grid.Row="0" Grid.Column="1" Content="kgCO2/kWH" FontWeight="Bold" Foreground="#B8B9BB"></Label>
+
                         <!--<Separator Grid.ColumnSpan="2"/>-->
                         <Label Grid.Row="1" Grid.Column="0" Content="Annual Carbon Footprint" FontWeight="Bold"></Label>
                         <Label Grid.Row="2" Grid.Column="0" Content="Daily Carbon Footprint" FontWeight="Bold"></Label>
                         <Label Grid.Row="3" Grid.Column="0" Content="Total Carbon Footprint" FontWeight="Bold"></Label>
 
                         <Label x:Name="annualCFLbl" Grid.Row="1" Grid.Column="1" Content=" "></Label>
-                        <Label x:Name="dailyCFLbl" Grid.Row="2" Grid.Column="1" Content=" "></Label>
-                        <Label x:Name="totalCFLbl" Grid.Row="3" Grid.Column="1" Content=" "></Label>
+                        <Label x:Name="dailyCFLbl" Grid.Row="2" Grid.Column="1" Content=" " ></Label>
+                        <Label x:Name="totalCFLbl" Grid.Row="3" Grid.Column="1" Content=" " ></Label>
+                        <Label x:Name="totalCFlvlLbl" Grid.Row="3" Grid.Column="2" Content=" "></Label>
 
 
                     </Grid>

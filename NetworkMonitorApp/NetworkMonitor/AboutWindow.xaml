@@ -52,7 +52,7 @@
                     <RowDefinition Height="2*"/>
                 </Grid.RowDefinitions>
 
-                <Image Source="/Resources/favicon.ico" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+                <Image Source="/Resources/peppa.png" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
                 
                 <Label Content="VERSION: " Grid.Row="1" Grid.Column="0"></Label>
                 <Label Content="1.0.0.0" Grid.Row="1" Grid.Column="2"></Label>
