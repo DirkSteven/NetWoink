@@ -87,7 +87,7 @@ namespace NetworkMonitor
                 Console.WriteLine("Error: selectedAdapter is null.");
             }
         }
-        
+
 
         private PacketDevice GetPacketDevice(NetworkInterface networkInterface)
         {
@@ -195,6 +195,7 @@ namespace NetworkMonitor
             networkScanned = true;
             RefreshButton.Opacity = 1;
             DevicesButton.Opacity = 1;
+            bgrec.Fill = new SolidColorBrush(System.Windows.Media.Color.FromRgb(98, 94, 94));
             RefreshButton.IsEnabled = true;
             DevicesButton.IsEnabled = true;
             ClickToScanText.Text = String.Empty;
@@ -234,7 +235,7 @@ namespace NetworkMonitor
             devices.Clear();
             ClickToScanText.Text = "Scanning...";
             DevicesButton.IsEnabled = false;
-            DevicesButton.Opacity =0.3;
+            DevicesButton.Opacity = 0.3;
 
             RefreshButton.Opacity = 0.3;
             RefreshButton.IsEnabled = false;

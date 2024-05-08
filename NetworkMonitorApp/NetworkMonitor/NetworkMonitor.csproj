@@ -28,6 +28,7 @@
     <None Remove="Resources\color_ok.PNG" />
     <None Remove="Resources\icons8-ok-red.png" />
     <None Remove="Resources\leaf.png" />
+    <None Remove="Resources\manicon.png" />
     <None Remove="Resources\peppa.png" />
     <None Remove="Resources\spinB.gif" />
     <None Remove="Resources\spinW.gif" />
@@ -41,6 +42,7 @@
     <Resource Include="Resources\color_ok.PNG" />
     <Resource Include="Resources\icons8-ok-red.png" />
     <Resource Include="Resources\leaf.png" />
+    <Resource Include="Resources\manicon.png" />
     <Resource Include="Resources\peppa.png" />
     <Resource Include="Resources\spinB.gif" />
     <Resource Include="Resources\spinW.gif" />
