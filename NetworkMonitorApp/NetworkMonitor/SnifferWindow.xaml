@@ -8,22 +8,28 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
+        
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="0">
+            <Label x:Name="StatusUpdate" Content="Status: Idle"></Label>
             <Button x:Name="StartButton" Content="Start" Click="StartButton_Click" Margin="5"/>
             <!---->
-            <Button x:Name="StopButton" Content="Stop"  Margin="5"/>
+            <Button x:Name="StopButton" Content="Stop" Click="StopButton_Click" Margin="5"/> 
             <!--Click="StopButton_Click"-->
+
+            <Button x:Name="BackButton" Content="Back" Click="BackButton_Click" Margin="5"/>
         </StackPanel>
-        <ListView x:Name="PacketListView" Grid.Row="1" Margin="5">
+        <ListView x:Name="PacketListView" Grid.Row="1" Margin="5" ItemsSource="{Binding PacketItems}">
             <ListView.View>
                 <GridView>
+
                     <GridViewColumn Header="Source" DisplayMemberBinding="{Binding SourceIpAddress}" Width="100"/>
                     <GridViewColumn Header="Destination" DisplayMemberBinding="{Binding DestinationIpAddress}" Width="100"/>
-                    <GridViewColumn Header="Host" DisplayMemberBinding="{Binding SourceHostName}" Width="150"/>
+                    <GridViewColumn Header="Host" DisplayMemberBinding="{Binding DestinationHostName}" Width="150"/>
                     <GridViewColumn Header="Type" DisplayMemberBinding="{Binding PacketType}" Width="80"/>
                     <GridViewColumn Header="Protocol" DisplayMemberBinding="{Binding Protocol}" Width="100"/>
                 </GridView>
             </ListView.View>
         </ListView>
+        
     </Grid>
 </Window>

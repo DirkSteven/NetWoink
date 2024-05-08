@@ -61,25 +61,15 @@ namespace NetworkMonitor
         {
             if (selectedAdapter != null)
             {
-                // Convert the selected adapter to PacketDevice and store it
+                // Store the selected adapter
                 this.selectedAdapter = selectedAdapter;
 
-                // Debugging statement to print the received device
-                Console.WriteLine("Selected adapter received in MainWindow: " + selectedAdapter.Name);
-                Console.WriteLine("Selected adapter description: " + selectedAdapter.Description);
-                Console.WriteLine(selectedAdapter);
-
-                // Debugging statement to print the received device
-                Console.WriteLine("Received device in MainWindow: " + selectedAdapter);
-
                 // Create a new instance of SnifferWindow and pass the selected adapter
-
-                //snifferWindow = new SnifferWindow(selectedAdapter, new PacketCapture(selectedAdapter, snifferWindow));
-
                 snifferWindow = new SnifferWindow(selectedAdapter);
-                PacketCapture packetCapture = new PacketCapture(selectedAdapter, snifferWindow);
-                snifferWindow = new SnifferWindow(selectedAdapter, packetCapture);
+                packetCapture = new PacketCapture(selectedAdapter, snifferWindow);
 
+                // Show the SnifferWindow
+                
             }
             else
             {
@@ -87,7 +77,10 @@ namespace NetworkMonitor
                 Console.WriteLine("Error: selectedAdapter is null.");
             }
         }
-        
+
+
+
+
 
         private PacketDevice GetPacketDevice(NetworkInterface networkInterface)
         {
@@ -144,8 +137,18 @@ namespace NetworkMonitor
             {
                 // Update the device's IsSelected property
                 device.IsSelected = checkbox.IsChecked ?? false;
+
+                // Uncheck all other checkboxes except the one that was just clicked
+                foreach (var item in devices)
+                {
+                    if (item != device)
+                    {
+                        item.IsSelected = false;
+                    }
+                }
             }
         }
+
 
         // MainWindow.xaml.cs
 
@@ -226,6 +229,8 @@ namespace NetworkMonitor
                 }
             }
 
+
+
             if (selectedDevice != null)
             {
                 // Ensure that snifferWindow is not null and has been initialized
@@ -233,7 +238,7 @@ namespace NetworkMonitor
                 {
                     // Pass the selected device's IP address to the existing SnifferWindow instance
                     snifferWindow.SnifferWindowGetIP(selectedDevice.IP);
-                    snifferWindow.Show();
+                    snifferWindow.ShowDialog();
                 }
                 else
                 {

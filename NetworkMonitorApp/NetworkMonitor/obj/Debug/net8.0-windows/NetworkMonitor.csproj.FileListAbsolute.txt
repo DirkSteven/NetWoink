@@ -53,3 +53,4 @@ D:\Projects\NMS\NetworkMonitorApp\NetworkMonitor\obj\Debug\net8.0-windows\refint
 D:\Projects\NMS\NetworkMonitorApp\NetworkMonitor\obj\Debug\net8.0-windows\NetworkMonitor.pdb
 D:\Projects\NMS\NetworkMonitorApp\NetworkMonitor\obj\Debug\net8.0-windows\NetworkMonitor.genruntimeconfig.cache
 D:\Projects\NMS\NetworkMonitorApp\NetworkMonitor\obj\Debug\net8.0-windows\ref\NetworkMonitor.dll
+D:\Projects\NMS\NetworkMonitorApp\NetworkMonitor\bin\Debug\net8.0-windows\NetworkMonitor.dll.config
