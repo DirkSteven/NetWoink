@@ -1,0 +1,115 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Vvela\\Desktop\\Upload\\NMS\\NetworkMonitorApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{BA5BC1CE-0E0E-4F4C-9EC8-6A408972A767}|NetworkMonitor\\NetworkMonitor.csproj|c:\\users\\vvela\\desktop\\upload\\nms\\networkmonitorapp\\networkmonitor\\snifferwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{BA5BC1CE-0E0E-4F4C-9EC8-6A408972A767}|NetworkMonitor\\NetworkMonitor.csproj|solutionrelative:networkmonitor\\snifferwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BA5BC1CE-0E0E-4F4C-9EC8-6A408972A767}|NetworkMonitor\\NetworkMonitor.csproj|C:\\Users\\Vvela\\Desktop\\Upload\\NMS\\NetworkMonitorApp\\networkmonitor\\snifferwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BA5BC1CE-0E0E-4F4C-9EC8-6A408972A767}|NetworkMonitor\\NetworkMonitor.csproj|solutionrelative:networkmonitor\\snifferwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BA5BC1CE-0E0E-4F4C-9EC8-6A408972A767}|NetworkMonitor\\NetworkMonitor.csproj|C:\\Users\\Vvela\\Desktop\\Upload\\NMS\\NetworkMonitorApp\\networkmonitor\\initializewindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{BA5BC1CE-0E0E-4F4C-9EC8-6A408972A767}|NetworkMonitor\\NetworkMonitor.csproj|solutionrelative:networkmonitor\\initializewindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BA5BC1CE-0E0E-4F4C-9EC8-6A408972A767}|NetworkMonitor\\NetworkMonitor.csproj|C:\\Users\\Vvela\\Desktop\\Upload\\NMS\\NetworkMonitorApp\\networkmonitor\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BA5BC1CE-0E0E-4F4C-9EC8-6A408972A767}|NetworkMonitor\\NetworkMonitor.csproj|solutionrelative:networkmonitor\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BA5BC1CE-0E0E-4F4C-9EC8-6A408972A767}|NetworkMonitor\\NetworkMonitor.csproj|C:\\Users\\Vvela\\Desktop\\Upload\\NMS\\NetworkMonitorApp\\networkmonitor\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{BA5BC1CE-0E0E-4F4C-9EC8-6A408972A767}|NetworkMonitor\\NetworkMonitor.csproj|solutionrelative:networkmonitor\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BA5BC1CE-0E0E-4F4C-9EC8-6A408972A767}|NetworkMonitor\\NetworkMonitor.csproj|C:\\Users\\Vvela\\Desktop\\Upload\\NMS\\NetworkMonitorApp\\networkmonitor\\packetcapture.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BA5BC1CE-0E0E-4F4C-9EC8-6A408972A767}|NetworkMonitor\\NetworkMonitor.csproj|solutionrelative:networkmonitor\\packetcapture.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Vvela\\Desktop\\Upload\\NMS\\NetworkMonitorApp\\NetworkMonitor\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "NetworkMonitor\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\Vvela\\Desktop\\Upload\\NMS\\NetworkMonitorApp\\NetworkMonitor\\MainWindow.xaml",
+              "RelativeToolTip": "NetworkMonitor\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-05-07T07:57:54.29Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "InitializeWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Vvela\\Desktop\\Upload\\NMS\\NetworkMonitorApp\\NetworkMonitor\\InitializeWindow.xaml",
+              "RelativeDocumentMoniker": "NetworkMonitor\\InitializeWindow.xaml",
+              "ToolTip": "C:\\Users\\Vvela\\Desktop\\Upload\\NMS\\NetworkMonitorApp\\NetworkMonitor\\InitializeWindow.xaml",
+              "RelativeToolTip": "NetworkMonitor\\InitializeWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-05-08T04:49:28.666Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Vvela\\Desktop\\Upload\\NMS\\NetworkMonitorApp\\NetworkMonitor\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "NetworkMonitor\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\Vvela\\Desktop\\Upload\\NMS\\NetworkMonitorApp\\NetworkMonitor\\MainWindow.xaml.cs",
+              "RelativeToolTip": "NetworkMonitor\\MainWindow.xaml.cs",
+              "ViewState": "AQIAAAQBAAAAAAAAAAAqwFcBAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-08T04:47:12.644Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SnifferWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Vvela\\Desktop\\Upload\\NMS\\NetworkMonitorApp\\NetworkMonitor\\SnifferWindow.xaml.cs",
+              "RelativeDocumentMoniker": "NetworkMonitor\\SnifferWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\Vvela\\Desktop\\Upload\\NMS\\NetworkMonitorApp\\NetworkMonitor\\SnifferWindow.xaml.cs",
+              "RelativeToolTip": "NetworkMonitor\\SnifferWindow.xaml.cs",
+              "ViewState": "AQIAAFsAAAAAAAAAAAAgwHAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-08T04:42:00.609Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SnifferWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Vvela\\Desktop\\Upload\\NMS\\NetworkMonitorApp\\NetworkMonitor\\SnifferWindow.xaml",
+              "RelativeDocumentMoniker": "NetworkMonitor\\SnifferWindow.xaml",
+              "ToolTip": "C:\\Users\\Vvela\\Desktop\\Upload\\NMS\\NetworkMonitorApp\\NetworkMonitor\\SnifferWindow.xaml",
+              "RelativeToolTip": "NetworkMonitor\\SnifferWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-05-08T04:34:24.706Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "PacketCapture.cs",
+              "DocumentMoniker": "C:\\Users\\Vvela\\Desktop\\Upload\\NMS\\NetworkMonitorApp\\NetworkMonitor\\PacketCapture.cs",
+              "RelativeDocumentMoniker": "NetworkMonitor\\PacketCapture.cs",
+              "ToolTip": "C:\\Users\\Vvela\\Desktop\\Upload\\NMS\\NetworkMonitorApp\\NetworkMonitor\\PacketCapture.cs",
+              "RelativeToolTip": "NetworkMonitor\\PacketCapture.cs",
+              "ViewState": "AQIAAEwAAAAAAAAAAAAQwLYAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-08T04:33:35.895Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

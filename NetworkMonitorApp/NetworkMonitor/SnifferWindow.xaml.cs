@@ -77,7 +77,7 @@ namespace NetworkMonitor
         }
         public void UpdatePacketListView(string sourceIp, string destinationIp, string sourceMac, string protocol, string packetType, string destinationHost)
         {
-  
+
             // Create a new PacketItem
             var packetItem = new PacketItem
             {
@@ -90,12 +90,12 @@ namespace NetworkMonitor
             };
 
             // Add the PacketItem to the ObservableCollection
-            packetItems.Add(packetItem);    
+            packetItems.Add(packetItem);
             PacketListView.Items.Refresh();
 
 
             Console.WriteLine($"Added packet item: {packetItem.SourceIpAddress}, {packetItem.DestinationIpAddress}, {packetItem.SourceMacAddress}, {packetItem.Protocol}, {packetItem.PacketType}, {packetItem.DestinationHostName}");
-            
+
         }
         private void StopButton_Click(object sender, RoutedEventArgs e)
         {
@@ -107,8 +107,7 @@ namespace NetworkMonitor
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-
-            Visibility = Visibility.Hidden;
+            this.Hide();
         }
     }
 
@@ -119,7 +118,7 @@ namespace NetworkMonitor
         public string SourceMacAddress { get; set; }
         public string Protocol { get; set; }
         public string PacketType { get; set; }
-        public string DestinationHostName{ get; set; }
+        public string DestinationHostName { get; set; }
     }
 
 
