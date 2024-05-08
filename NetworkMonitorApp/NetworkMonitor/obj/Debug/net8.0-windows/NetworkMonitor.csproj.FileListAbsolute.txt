@@ -205,3 +205,8 @@ C:\Users\Vvela\Desktop\Upload\NMS\NetworkMonitorApp\NetworkMonitor\obj\Debug\net
 C:\Users\Vvela\Desktop\Upload\NMS\NetworkMonitorApp\NetworkMonitor\obj\Debug\net8.0-windows\NetworkMonitor.pdb
 C:\Users\Vvela\Desktop\Upload\NMS\NetworkMonitorApp\NetworkMonitor\obj\Debug\net8.0-windows\NetworkMonitor.genruntimeconfig.cache
 C:\Users\Vvela\Desktop\Upload\NMS\NetworkMonitorApp\NetworkMonitor\obj\Debug\net8.0-windows\ref\NetworkMonitor.dll
+D:\Projects\NMS\NetworkMonitorApp\NetworkMonitor\bin\Debug\net8.0-windows\NetworkMonitor.dll.config
+D:\Projects\NMS\NetworkMonitorApp\NetworkMonitor\obj\Debug\net8.0-windows\AboutWindow.g.cs
+D:\Projects\NMS\NetworkMonitorApp\NetworkMonitor\obj\Debug\net8.0-windows\CFWindow.g.cs
+D:\Projects\NMS\NetworkMonitorApp\NetworkMonitor\obj\Debug\net8.0-windows\AboutWindow.baml
+D:\Projects\NMS\NetworkMonitorApp\NetworkMonitor\obj\Debug\net8.0-windows\CFWindow.baml

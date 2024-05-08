@@ -4,16 +4,16 @@
 exe
 C#
 .cs
-C:\Users\Vvela\Desktop\Upload\NMS\NetworkMonitorApp\NetworkMonitor\obj\Debug\net8.0-windows\
+D:\Projects\NMS\NetworkMonitorApp\NetworkMonitor\obj\Debug\net8.0-windows\
 NetworkMonitor
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-C:\Users\Vvela\Desktop\Upload\NMS\NetworkMonitorApp\NetworkMonitor\App.xaml
+D:\Projects\NMS\NetworkMonitorApp\NetworkMonitor\App.xaml
 51906566767
 
 16-688355054
-204-671733460
+204133255122
 AboutWindow.xaml;CFWindow.xaml;InitializeWindow.xaml;MainWindow.xaml;SnifferWindow.xaml;
 
 False

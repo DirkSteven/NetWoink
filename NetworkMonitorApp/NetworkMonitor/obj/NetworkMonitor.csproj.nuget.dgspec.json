@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Vvela\\Desktop\\Upload\\NMS\\NetworkMonitorApp\\NetworkMonitor\\NetworkMonitor.csproj": {}
+    "D:\\Projects\\NMS\\NetworkMonitorApp\\NetworkMonitor\\NetworkMonitor.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Vvela\\Desktop\\Upload\\NMS\\NetworkMonitorApp\\NetworkMonitor\\NetworkMonitor.csproj": {
+    "D:\\Projects\\NMS\\NetworkMonitorApp\\NetworkMonitor\\NetworkMonitor.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Vvela\\Desktop\\Upload\\NMS\\NetworkMonitorApp\\NetworkMonitor\\NetworkMonitor.csproj",
+        "projectUniqueName": "D:\\Projects\\NMS\\NetworkMonitorApp\\NetworkMonitor\\NetworkMonitor.csproj",
         "projectName": "NetworkMonitor",
-        "projectPath": "C:\\Users\\Vvela\\Desktop\\Upload\\NMS\\NetworkMonitorApp\\NetworkMonitor\\NetworkMonitor.csproj",
-        "packagesPath": "C:\\Users\\Vvela\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Vvela\\Desktop\\Upload\\NMS\\NetworkMonitorApp\\NetworkMonitor\\obj\\",
+        "projectPath": "D:\\Projects\\NMS\\NetworkMonitorApp\\NetworkMonitor\\NetworkMonitor.csproj",
+        "packagesPath": "C:\\Users\\Doink\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\NMS\\NetworkMonitorApp\\NetworkMonitor\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Vvela\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Doink\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -25,8 +25,6 @@
           "net8.0-windows"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -39,11 +37,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -78,7 +71,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
