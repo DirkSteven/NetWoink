@@ -6,7 +6,9 @@
         xmlns:local="clr-namespace:NetworkMonitor"
         mc:Ignorable="d"
         WindowStartupLocation="CenterOwner"
-        Title="NIC Selection" Height="340" Width="545">
+        Title="NIC Selection" Height="340" Width="545"
+        WindowState="Normal"
+        WindowStyle="None">
 
 
     <Window.Resources>
@@ -124,11 +126,14 @@ Data="M 0 0 L 4 4 L 8 0 Z"/>
 
         <Style TargetType="Label">
             <Setter Property="FontFamily" Value="Open Sans"/>
+            <Setter Property="Panel.ZIndex" Value="1"/>
             <Setter Property="Foreground" Value="#ffffff"/>
         </Style>
         <Style TargetType="Button">
             <Setter Property="FontFamily" Value="Open Sans"/>
             <Setter Property="Foreground" Value="#ffffff"/>
+
+
         </Style>
 
 
@@ -170,6 +175,7 @@ Data="M 0 0 L 4 4 L 8 0 Z"/>
                         <TextBlock FontWeight="Bold" Width="28" Padding="0 10 0 0" Margin="0 0 0 0">OK</TextBlock>
                     </StackPanel>
                 </Button>
+                <Image Source="/Resources/manicon.png" Margin="-300,-173,122,19" Panel.ZIndex="-1"/>
             </Grid>
         </StackPanel>
     </Border>
