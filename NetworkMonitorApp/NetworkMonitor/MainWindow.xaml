@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NetworkMonitor"
         mc:Ignorable="d"
-        Title="NetworkMonitor" Height="500" Width="815" ResizeMode="NoResize">
+        Title="Netwoink" Height="500" Width="815" ResizeMode="NoResize"
+        Icon="/Resources/netwoink.ico">
     <Window.Resources>
         <ResourceDictionary>
             <Style TargetType="Label">
@@ -49,7 +50,7 @@
             </Style>
 
             <Style TargetType="List">
-                <Setter Property="BorderThickness" Value="0 0 0 5" />
+                <Setter Property="BorderThickness" Value="0 0 0 0" />
             </Style>
 
             <Style TargetType="{x:Type ListViewItem}">
@@ -81,7 +82,7 @@
     <Border Padding="10" Background="#323030">
         <Grid>
             <!--Top Label-->
-            <Grid x:Name="LabelGrid" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="22,0,0,0" Grid.ColumnSpan="2">
+            <Grid x:Name="LabelGrid" VerticalAlignment="Top" HorizontalAlignment="Center" Width="750">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="50" />
                     <ColumnDefinition Width="150" />
@@ -98,7 +99,7 @@
 
             <TextBlock x:Name="ClickToScanText" Text="Click 'Scan' to see devices" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
 
-            <ListView x:Name="DeviceListView" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="35,55,0,0">
+            <ListView x:Name="DeviceListView" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,55,0,0" Width="750">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="      " Width="50">
