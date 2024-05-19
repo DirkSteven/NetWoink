@@ -29,7 +29,7 @@
     <None Remove="Resources\icons8-ok-red.png" />
     <None Remove="Resources\leaf.png" />
     <None Remove="Resources\manicon.png" />
-    <None Remove="Resources\peppa.png" />
+    <None Remove="Resources\netwoink.ico" />
     <None Remove="Resources\spinB.gif" />
     <None Remove="Resources\spinW.gif" />
   </ItemGroup>
@@ -43,7 +43,7 @@
     <Resource Include="Resources\icons8-ok-red.png" />
     <Resource Include="Resources\leaf.png" />
     <Resource Include="Resources\manicon.png" />
-    <Resource Include="Resources\peppa.png" />
+    <Resource Include="Resources\netwoink.ico" />
     <Resource Include="Resources\spinB.gif" />
     <Resource Include="Resources\spinW.gif" />
   </ItemGroup>

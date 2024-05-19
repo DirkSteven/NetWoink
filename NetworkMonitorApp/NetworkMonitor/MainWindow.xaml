@@ -129,14 +129,12 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
                 <Button x:Name="ScanButton" Click="ScanButton_Click"  Grid.Column="0" Content="SCAN"  />
                 <Button x:Name="RefreshButton" Click="RefreshButton_Click" Grid.Column="1" Content="REFRESH" Opacity="0.3" IsEnabled ="False"/>
                 <Button x:Name="SnifferBuutton" Click="SnifferButton_Click" Grid.Column="2" Content="SNIFFER"/>
-                <Button x:Name="OptionButton" Click="OptionButton_Click" Grid.Column="3" Content="OPTION"/>
-                <Button x:Name="AboutButton" Click="AboutButton_Click" Grid.Column="4" Content="ABOUT" Height="30" Margin="10,5,10,0" VerticalAlignment="Top"/>
-                <Button x:Name="DevicesButton" Click="DevicesButton_Click" Grid.Column="5" Content="VIEW DEVICE"  Opacity="0.3" IsEnabled ="False"/>
+                <Button x:Name="AboutButton" Click="AboutButton_Click" Grid.Column="3" Content="ABOUT" Height="30" Margin="10,5,10,0" VerticalAlignment="Top"/>
+                <Button x:Name="DevicesButton" Click="DevicesButton_Click" Grid.Column="4" Content="VIEW DEVICE"  Opacity="0.3" IsEnabled ="False"/>
             </Grid>
         </Grid>
     </Border>

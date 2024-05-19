@@ -234,7 +234,6 @@ namespace NetworkMonitor
             ClickToScanText.Text = "Scanning...";
             DevicesButton.IsEnabled = false;
             DevicesButton.Opacity = 0.3;
-
             RefreshButton.Opacity = 0.3;
             RefreshButton.IsEnabled = false;
 
@@ -267,8 +266,10 @@ namespace NetworkMonitor
 
             networkScanned = true;
             RefreshButton.Opacity = 1;
+            DevicesButton.Opacity = 1;
             RefreshButton.IsEnabled = true;
             RefreshButton.IsEnabled = true;
+            DevicesButton.IsEnabled = true;
             RefreshButton.Opacity = 1;
             ClickToScanText.Text = String.Empty;
 
