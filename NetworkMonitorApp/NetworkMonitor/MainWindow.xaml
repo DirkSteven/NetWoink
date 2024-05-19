@@ -5,20 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NetworkMonitor"
         mc:Ignorable="d"
-        Title="NetworkMonitor" Height="470" Width="829">
+        Title="Netwoink" Height="500" Width="815" ResizeMode="NoResize"
+        Icon="/Resources/netwoink.ico">
     <Window.Resources>
         <ResourceDictionary>
             <Style TargetType="Label">
                 <Setter Property="FontFamily" Value="Open Sans"/>
                 <Setter Property="Foreground" Value="#ffffff"/>
             </Style>
+
             <Style TargetType="Button">
                 <Setter Property="Background" Value="#6430CB" />
                 <Setter Property="Foreground" Value="#ffffff" />
                 <Setter Property="Margin" Value="10 5 10 5 " />
-                <Setter Property="Padding" Value="0 6" />
+                <Setter Property="Height" Value="30" />
                 <Setter Property="FontFamily" Value="Open Sans" />
                 <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="VerticalContentAlignment" Value="Center" />
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="Button">
@@ -29,63 +32,112 @@
                     </Setter.Value>
                 </Setter>
             </Style>
+
+            <Style TargetType="GridViewColumnHeader">
+                <Setter Property="Background" Value="#323030"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                <Setter Property="Width" Value="auto"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="SnapsToDevicePixels" Value="True"/>
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="Height" Value="0"/>
+                <Setter Property="IsHitTestVisible" Value="False"/>
+            </Style>
+
+            <Style TargetType="ListView">
+                <Setter Property="BorderThickness" Value="0"/>
+            </Style>
+
+            <Style TargetType="List">
+                <Setter Property="BorderThickness" Value="0 0 0 0" />
+            </Style>
+
+            <Style TargetType="{x:Type ListViewItem}">
+                <Setter Property="Width" Value="750"/>
+                <Setter Property="Background" Value="#625e5e" />
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="HorizontalContentAlignment" Value="Center" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type ListViewItem}">
+                            <Grid Background="{TemplateBinding Background}">
+                                <Border Name="Selection" Visibility="Collapsed"/>
+                                <GridViewRowPresenter Grid.RowSpan="2"
+                                          Margin="{TemplateBinding Padding}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
         </ResourceDictionary>
     </Window.Resources>
-
     <Border Padding="10" Background="#323030">
-        <StackPanel>
-            <Grid>
+        <Grid>
+            <!--Top Label-->
+            <Grid x:Name="LabelGrid" VerticalAlignment="Top" HorizontalAlignment="Center" Width="750">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50" />
+                    <ColumnDefinition Width="150" />
+                    <ColumnDefinition Width="150" />
+                    <ColumnDefinition Width="150" />
+                    <ColumnDefinition Width="250" />
+                </Grid.ColumnDefinitions>
+                <Label x:Name="Select" Content="Select"  Grid.Column="0" HorizontalContentAlignment="Center"/>
+                <Label x:Name="IP" Content="IP Address" Grid.Column="1" HorizontalContentAlignment="Center"/>
+                <Label x:Name="MAC" Content="MAC Address" Grid.Column="2" HorizontalContentAlignment="Center"/>
+                <Label x:Name="DeviceName" Content="Device Name" Grid.Column="3" HorizontalContentAlignment="Center"/>
+                <Label x:Name="Vendor" Content="Vendor" Grid.Column="4" HorizontalContentAlignment="Center"/>
+            </Grid>
+
+            <TextBlock x:Name="ClickToScanText" Text="Click 'Scan' to see devices" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+
+            <ListView x:Name="DeviceListView" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,55,0,0" Width="750">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="      " Width="50">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox IsChecked="{Binding IsSelected}" Click="DeviceCheckbox_Click" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="          " DisplayMemberBinding="{Binding IP}" Width="150" />
+                        <GridViewColumn Header="           " DisplayMemberBinding="{Binding MAC}" Width="150"/>
+                        <GridViewColumn Header="           " DisplayMemberBinding="{Binding DeviceName}" Width="150"/>
+                        <GridViewColumn Header="      " DisplayMemberBinding="{Binding Vendor}" Width="250" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+            <TextBlock x:Name="bg" HorizontalAlignment="Center" VerticalAlignment="Center" Height="360" Width="750" Panel.ZIndex="-1" Margin="0,0,0,30" Grid.ColumnSpan="2">
+                <Rectangle x:Name="bgrec"  RadiusX="20" RadiusY="20" Height="{Binding Height, ElementName=bg}" Width="{Binding Width, ElementName=bg}" Fill="#504a4a"></Rectangle>
+            </TextBlock>
+
+            <!-- Buttons at the bottom -->
+            <Grid VerticalAlignment="Bottom" Grid.ColumnSpan="2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*" />
-
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Label Grid.Column="0" x:Name="ipLabel" Content="IP" TextBlock.TextAlignment="Center" Margin="10 5 10 5 " Padding="80 0 0 0 "></Label>
-                
-                <GridSplitter Grid.Column="0" BorderThickness="1" BorderBrush="Bisque" ></GridSplitter>
-                
-                <Label Grid.Column="1" x:Name="macLabel" Content="MAC" Margin="10 5 10 5 " Padding="80 0 0 0 "></Label>
-                
-                <GridSplitter Grid.Column="1"  BorderThickness="1" BorderBrush="Bisque" ></GridSplitter>
-                
-                <Label Grid.Column="2" x:Name="nameLabel" Content="NAME" Margin="10 5 10 5 " Padding="80 0 0 0 "></Label>
-                
-                <GridSplitter Grid.Column="2" BorderThickness="1" BorderBrush="Bisque" ></GridSplitter>
-                
-                <Label Grid.Column="3" x:Name="vendorLabel" Content="VENDOR" Margin="10 5 10 5 " Padding="80 0 0 0 "></Label>
-
+                <Button x:Name="ScanButton" Click="ScanButton_Click"  Grid.Column="0" Content="SCAN"  />
+                <Button x:Name="RefreshButton" Click="RefreshButton_Click" Grid.Column="1" Content="REFRESH" Opacity="0.3" IsEnabled ="False"/>
+                <Button x:Name="SnifferBuutton" Click="SnifferButton_Click" Grid.Column="2" Content="SNIFFER"/>
+                <Button x:Name="OptionButton" Click="OptionButton_Click" Grid.Column="3" Content="OPTION"/>
+                <Button x:Name="AboutButton" Click="AboutButton_Click" Grid.Column="4" Content="ABOUT" Height="30" Margin="10,5,10,0" VerticalAlignment="Top"/>
+                <Button x:Name="DevicesButton" Click="DevicesButton_Click" Grid.Column="5" Content="VIEW DEVICE"  Opacity="0.3" IsEnabled ="False"/>
             </Grid>
-            <StackPanel Orientation="Horizontal">
-                <Label Content="Devices" FontWeight="Bold"/>
-                <Separator Width="720"></Separator>
-            </StackPanel>
-
-            <Label Content="Gateway" FontWeight="Bold"/>
-            <Label Content="Own Device" FontWeight="Bold"/>
-
-
-            <Grid Margin="0 270 0 0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-
-                </Grid.ColumnDefinitions>
-                <Button x:Name="ScanButton" Click="ScanButton_Click"  Grid.Column="0" Content="SCAN"  ></Button>
-                <Button x:Name="RefreshButton" Click="RefreshButton_Click" Grid.Column="1" Content="REFRESH"></Button>
-                <Button x:Name="SnifferBuutton" Click="SnifferBuutton_Click" Grid.Column="2" Content="SNIFFER"></Button>
-                <Button x:Name="OptionButton" Click="OptionButton_Click" Grid.Column="3" Content="OPTION"></Button>
-                <Button x:Name="AboutButton" Click="AboutButton_Click" Grid.Column="4" Content="ABOUT"></Button>
-                <Button x:Name="DevicesButton" Click="DevicesButton_Click" Grid.Column="5" Content="DEVICES: "></Button>
-
-            </Grid>
-
-
-        </StackPanel>
+        </Grid>
     </Border>
 </Window>

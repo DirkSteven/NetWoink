@@ -1,8 +1,26 @@
 {
   "version": 2,
-  "dgSpecHash": "QmzFc5iC7L5DUhJjUPWf8Xxp6OEL+Ea0JSeKERz6rWRtIsTBmWWSh9kmemHY/P6rAaG5ue35DbGAebXQIHhoZw==",
+  "dgSpecHash": "1jVdhNwQrkr0LzUH+Xkz/4hVDAGxYFWUmbfij6Hwupt4OtycLGs+Q2GgL1UVZKDR+oIUBcV95xuqMCSMWjTEjA==",
   "success": true,
   "projectFilePath": "D:\\Projects\\NMS\\NetworkMonitorApp\\NetworkMonitor\\NetworkMonitor.csproj",
-  "expectedPackageFiles": [],
-  "logs": []
+  "expectedPackageFiles": [
+    "C:\\Users\\Doink\\.nuget\\packages\\packetdotnet\\1.4.7\\packetdotnet.1.4.7.nupkg.sha512",
+    "C:\\Users\\Doink\\.nuget\\packages\\pcapdotnet\\0.10.1\\pcapdotnet.0.10.1.nupkg.sha512",
+    "C:\\Users\\Doink\\.nuget\\packages\\sharppcap\\6.3.0\\sharppcap.6.3.0.nupkg.sha512",
+    "C:\\Users\\Doink\\.nuget\\packages\\system.memory\\4.5.5\\system.memory.4.5.5.nupkg.sha512",
+    "C:\\Users\\Doink\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\Doink\\.nuget\\packages\\system.text.encoding.codepages\\6.0.0\\system.text.encoding.codepages.6.0.0.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'PcapDotNet 0.10.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0-windows7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "PcapDotNet",
+      "targetGraphs": [
+        "net8.0-windows7.0"
+      ]
+    }
+  ]
 }

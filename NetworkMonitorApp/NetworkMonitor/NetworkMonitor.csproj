@@ -1,11 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <TargetFramework>net8.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
 
   <ItemGroup>
@@ -16,12 +17,20 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="NetworkAdapterHelper.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Resources\color_cancel.PNG" />
     <None Remove="Resources\color_error.PNG" />
     <None Remove="Resources\color_help.PNG" />
     <None Remove="Resources\color_info.PNG" />
     <None Remove="Resources\color_ok.PNG" />
     <None Remove="Resources\icons8-ok-red.png" />
+    <None Remove="Resources\leaf.png" />
+    <None Remove="Resources\manicon.png" />
+    <None Remove="Resources\netwoink.ico" />
+    <None Remove="Resources\peppa.png" />
     <None Remove="Resources\spinB.gif" />
     <None Remove="Resources\spinW.gif" />
   </ItemGroup>
@@ -33,12 +42,41 @@
     <Resource Include="Resources\color_info.PNG" />
     <Resource Include="Resources\color_ok.PNG" />
     <Resource Include="Resources\icons8-ok-red.png" />
+    <Resource Include="Resources\leaf.png" />
+    <Resource Include="Resources\manicon.png" />
+    <Resource Include="Resources\netwoink.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\peppa.png" />
     <Resource Include="Resources\spinB.gif" />
     <Resource Include="Resources\spinW.gif" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Logic\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="PcapDotNet" Version="0.10.1" />
+    <PackageReference Include="SharpPcap" Version="6.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Update="SnifferWindow - Copy.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 
 </Project>
