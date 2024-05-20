@@ -5,9 +5,7 @@ using System.Windows;
 
 namespace NetworkMonitor
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
+
     public partial class App : Application
     {
         // Static Stopwatch instance to track application runtime
@@ -37,15 +35,12 @@ namespace NetworkMonitor
         {
             // Update the UI with the elapsed time
             TimeSpan elapsed = ApplicationStopwatch.Elapsed;
-            // Assuming there's a method to update UI with elapsed time
             UpdateElapsedTimeUI(elapsed);
         }
 
         private void UpdateElapsedTimeUI(TimeSpan elapsed)
         {
-            // This method updates the UI with the elapsed time
-            // For example, you can raise an event to notify UI elements to update
-            // Or you can directly update UI controls if you have access to them
+
         }
     }
 
