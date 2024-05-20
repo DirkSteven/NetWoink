@@ -25,7 +25,7 @@ The project is aligned with the 17 Sustainable Development Goals (SDG), specific
 </p>
 
 - Scan the network using ARP and SMNP Network Protocols. 
-- Displays devices' information connected in the network
+- Displays devices' information connected in the network.
 - Retrieves vendor data from the macvendors website for the vendor information. 
 
 ### Packet Sniffing
@@ -88,7 +88,7 @@ The following listed tools are utilized in this project. <br>
 ##  <a id = "notes"> 📝 Notes </a><br>
 <em>
 
-[1] <b>Network Scanning employs ARP Protocol, it starts scanning from the address range of 0-255 and is set to scan for 60 seconds. Therefore, some devices in the with greater range might be not scanned. It is recommended to set the addresses of the bevices starting from 0.  </b>
+[1] <b>Network Scanning employs ARP Protocol, it starts scanning from the address range of 0-255 and is set to scan for 60 seconds. Therefore, some devices in the with greater range might be not scanned. It is recommended to set the addresses of the devices starting from 0.  </b>
 
 [2] <b>Moreover, It is recommendeed to select a LAN adaptor for the system for reduced latency and Network Scanning capabilities. </b>
 
