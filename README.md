@@ -81,7 +81,7 @@ The following listed tools are utilized in this project. <br>
 | <a href = "https://github.com/DirkSteven">Dirk Steven E. Javier</a> | Pabuhat | dirkjaviermvp@gmail.com | Allonsy -Discord |
 | <a href = "https://github.com/m-ciavel"> Ciavel Anby P. Montenegro </a>| Full Stack Procrastinator | m.cap1218@gmail.com |  |
 | <a href = "https://github.com/VinceAbella"> Vince Jericho Abella </a>| Pancit Canton | vinceabella07@gmail.com |  |
-| <a href = "https://github.com/sy1ph"> Jane Benedicta Tolentino </a>|  Motivation  | insertemail@gmail.com |  |
+| <a href = "https://github.com/sy1ph"> Jane Benedicta Tolentino </a>|  Motivation  | jbtolentino.827.04@gmail.com |  |
 
 
 
