@@ -20,11 +20,6 @@ using System.Diagnostics;
 
 namespace NetworkMonitor
 {
-    /// <summary>
-    /// Interaction logic for CFWindow.xaml
-    /// </summary>
-
-
 
     public partial class CFWindow : Window
     {
@@ -33,10 +28,6 @@ namespace NetworkMonitor
 
         private double PhoneRatedConsumption = 5;
         private double DesktopRatedConsumption = 200;
-
-        private const string macApiBaseUrl = "https://api.macvendors.com/";
-
-        //private DateTime buildTime;
 
         private string runtime;
 
@@ -71,18 +62,6 @@ namespace NetworkMonitor
             powercons(devtype);
 
             Console.WriteLine("LVI:" + this.powerConsumption);
-            // Initialize values (you can retrieve these from user input or configuration)
-            /*  powerConsumption = 50;*/ // Example: 50 watts
-            //buildTime = RetrieveBuildTime();
-            //TimeSpan runtimeSinceBuild = DateTime.Now - buildTime;
-            //double hoursSinceBuild = runtimeSinceBuild.TotalHours;
-
-            //Console.WriteLine($"Runtime since build: {runtimeSinceBuild}");
-            //Console.WriteLine($"Runtime since build: {hoursSinceBuild} hours");
-
-            //runtimePerDay = 4; // Example: 4 hours
-
-            //runtimeLbl.Content = hoursSinceBuild;
 
             // Calculate carbon footprint
             Console.WriteLine($"{carbonIntensity}, {this.powerConsumption}");
@@ -139,11 +118,9 @@ namespace NetworkMonitor
 
         private string InferDeviceType(string manufacturer)
         {
-            // Example: You might have a mapping of manufacturers to device types
-            // This is a simplistic example and would need to be expanded
             if (manufacturer.Contains("Apple"))
             {
-                return "iPhone"; // Example: Apple devices
+                return "Phone"; // Example: Apple devices
             }
             else if (manufacturer.Contains("Microsoft") || manufacturer.Contains("Intel") || manufacturer.Contains("Liteon"))
             {
@@ -207,7 +184,6 @@ namespace NetworkMonitor
             string carbonFootprintLevel = GetCarbonFootprintLevel(totalCarbonFootprint);
 
 
-            // Assuming there's a method to update UI with elapsed time
             UpdateElapsedTimeUI(elapsed);
             // Update UI with the total carbon footprint
             UpdateTotalCarbonFootprint(formattedtotalCarbonFootprint);
@@ -217,7 +193,6 @@ namespace NetworkMonitor
         private void UpdateElapsedTimeUI(TimeSpan elapsed)
         {
             // This method updates the UI with the elapsed time
-            // For example, you can display it in a label or any other UI element
             runtimeLbl.Content = elapsed.ToString(@"hh\:mm\:ss");
         }
 
@@ -235,8 +210,7 @@ namespace NetworkMonitor
 
         private double CalculateTotalEnergyConsumption(double runtime, double powerConsumption)
         {
-            // Implement your logic to calculate total energy consumption based on runtime
-            // Assuming a device with a constant power consumption of 5 watts
+            // Calculate total energy consumption based on runtime
             double totalEnergyConsumption = (powerConsumption * runtime) / 1000; // Convert watts to kW
             return totalEnergyConsumption;
         }
